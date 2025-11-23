@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="split-container">
+        <!-- Left side: login form, logo and motivation -->
+        <div class="left-side">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png" alt="Logo">
+                <span>Life Saver</span>
+            </div>
+            <div class="login-box">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Sign in to your account</p>
+                <form action="login.php" method="POST">
+                    <div class="input-group">
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <select required>
+                            <option value="" disabled selected>Select Account Type</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="agent">Agent</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+                </form>
+            </div>
+            <div class="motivation">
+                <p>"Every drop counts. Together, we save lives!"</p>
+            </div>
+        </div>
+
+        <!-- Right side: image + links -->
+        <div class="right-side">
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+            <img src="Image/blood-donor.png" alt="Blood Donation">
+        </div>
+    </div>
+</body>
+
+</html>
