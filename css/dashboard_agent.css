@@ -1,0 +1,204 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    padding: 10px 0;
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-btn {
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.08);
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.nav-login {
+    background: #d60000;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.nav-login:hover {
+    background: #a00000;
+}
+
+/* DASHBOARD LAYOUT */
+.dashboard-container {
+    display: flex;
+    padding-top: 70px; /* space for navbar */
+}
+
+/* ------------------------------------ */
+/* UPGRADED SIDEBAR STYLES */
+/* ------------------------------------ */
+
+/* SIDEBAR CONTAINER */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #1a0000; /* Deep, elegant background */
+    padding-top: 30px;
+    position: fixed;
+    top: 66px;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* AGENT HEADER */
+.sidebar h1 {
+    color: #ff6a00; 
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* SIDEBAR MENU CONTAINER */
+.sidebar-menu {
+    padding: 0 15px;
+}
+
+/* SIDEBAR LINKS */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 25px 25px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 33px;
+    margin-bottom: 30px;
+    transition: background 0.3s, color 0.3s, transform 0.1s;
+}
+
+/* LINK ICON (The blood-drop icon) */
+.sidebar a::before {
+    content: "➤"; 
+    margin-right: 12px;
+    font-size: 18px;
+    color: #d60000;
+    transition: color 0.3s;
+}
+
+/* HOVER EFFECT */
+.sidebar a:hover {
+    background: rgba(214, 0, 0, 0.15); 
+    color: white;
+    transform: translateX(3px);
+}
+
+.sidebar a:hover::before {
+    color: #ff6a00;
+}
+
+/* ACTIVE LINK STYLE (Applied to the current page link) */
+.sidebar a.active {
+    background: #d60000; 
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(214, 0, 0, 0.4);
+}
+
+.sidebar a.active::before {
+    content: "★"; 
+    color: white;
+}
+
+/* ------------------------------------ */
+/* MAIN CONTENT STYLES */
+/* ------------------------------------ */
+
+.content {
+    margin-left: 250px;
+    padding: 30px;
+    width: 100%;
+}
+
+.content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    /* Using a vibrant gradient for the title */
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* CARDS */
+.card {
+    background: #ffe3e3; /* Softened background */
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15); 
+    border-left: 6px solid #d60000; /* Strong accent border */
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.20);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+}
+
+.card p {
+    color: #555;
+    font-size: 1.1rem;
+}
