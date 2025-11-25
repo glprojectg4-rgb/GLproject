@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Donations</title>
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="Image/drop-of-blood-emoji.png">
+            <span>Donors</span>
+        </div>
+
+        <div class="menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="login.html" class="nav-login">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h1>Agent</h1>
+        <div class="sidebar-menu">
+            <a href="dashboard_agent.html">Dashboard</a>
+            <a class="active" href="donations.html">Manage Donations</a>
+            <a href="universal_donors.html">Universal Donors</a>
+            <a href="stock.html">Blood Stock</a>
+            <a href="alert.html">Send Alert</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <h1>Manage Donations</h1>
+
+        <div class="form-card">
+            <form>
+                <label>Donor Full Name</label>
+                <input type="text" placeholder="Enter donor name">
+
+                <label>Donation Type</label>
+                <select>
+                    <option>Universal</option>
+                    <option>Targeted Donation</option>
+                </select>
+
+                <label>Quantity (ml)</label>
+                <input type="number" placeholder="Example: 450">
+
+                <label>Recipient Full Name (For Targeted)</label>
+                <input type="text" placeholder="Optional">
+
+                <label>Recipient Date of Birth</label>
+                <input type="date">
+
+                <label>Hospital Department (CHU)</label>
+                <input type="text" placeholder="Enter department">
+
+                <button class="submit-btn">Save Donation</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* FORM CARD */
+.form-card {
+    background: #ffe3e3;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 12px;
+    border-left: 6px solid #d60000;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+.form-card form label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+}
+
+.form-card input,
+.form-card select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+
+.submit-btn {
+    background: #d60000;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.25s;
+}
+
+.submit-btn:hover {
+    background: #a00000;
+}
+
+
+/* TABLE CARD */
+.table-card {
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+    border-left: 6px solid #d60000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background: #d60000;
+    color: white;
+    text-align: left;
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #ccc;
+}
+
+tr:hover {
+    background: #ffe3e3;
+}
+
+/* Stock status colors */
+.ok {
+    color: green;
+    font-weight: bold;
+}
+
+.low {
+    color: red;
+    font-weight: bold;
+}
