@@ -1,39 +1,52 @@
 <?php
+session_start();
+require_once 'db_connection.php'; // ملف الاتصال بقاعدة البيانات
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $accountType = $_POST['account_type'];
 
-    // Example hardcoded credentials (replace with database check in production)
-    $validUsers = [
-        'admin' => ['username' => 'admin', 'password' => 'admin123'],
-        'manager' => ['username' => 'manager', 'password' => 'manager123'],
-        'agent' => ['username' => 'agent', 'password' => 'agent123'],
-    ];
+    // استعلام للتحقق من المستخدم
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND role = ? AND status = 'active' AND is_deleted = 0");
+    $stmt->bind_param("ss", $username, $accountType);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $valid = false;
-    if (isset($validUsers[$accountType])) {
-        if ($validUsers[$accountType]['username'] === $username && $validUsers[$accountType]['password'] === $password) {
-            $valid = true;
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // التحقق من كلمة المرور
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+
+            // تحديث آخر تسجيل دخول
+            $update = $conn->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
+            $update->bind_param("i", $user['id']);
+            $update->execute();
+
+            // التوجيه حسب نوع الحساب
+            switch ($user['role']) {
+                case 'admin':
+                    header("Location: dashboard_admin.html");
+                    break;
+                case 'manager':
+                    header("Location: dashboard_manager.html");
+                    break;
+                case 'agent':
+                    header("Location: dashboard_agent.html");
+                    break;
+            }
+            exit;
         }
     }
 
-    if ($valid) {
-        // Redirect based on account type
-        if ($accountType === 'admin') {
-            header("Location: dashboard_admin.html");
-        } elseif ($accountType === 'manager') {
-            header("Location: dashboard_manager.html");
-        } elseif ($accountType === 'agent') {
-            header("Location: dashboard_agent.html");
-        }
-        exit;
-    } else {
-        // Show error (can also redirect back with query string)
-        echo "<script>alert('Invalid username, password, or account type'); window.history.back();</script>";
-    }
+    // في حال فشل التحقق
+    echo "<script>alert('Invalid username, password, or account type'); window.history.back();</script>";
 } else {
-    header("Location: login.html"); // prevent direct access
+    header("Location: login.html");
     exit;
 }
 ?>
