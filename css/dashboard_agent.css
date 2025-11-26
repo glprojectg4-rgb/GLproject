@@ -1,20 +1,58 @@
-/* RESET */
-*{
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* NAVBAR */
+:root {
+    /* ===== Colors from the New Design ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transitions ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+/* ============================ */
+/* NAVBAR                     */
+/* ============================ */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 50;
-    background: rgba(0, 0, 0, 0.55);
+    background: #17173A;
     backdrop-filter: blur(8px);
     padding: 10px 0;
+    height: 70px;
 }
 
 .nav-container {
@@ -49,12 +87,12 @@
     text-decoration: none;
     border-radius: 6px;
     font-size: 16px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     transition: 0.25s;
 }
 
 .nav-btn:hover {
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .nav-login {
@@ -71,125 +109,248 @@
     background: #a00000;
 }
 
-/* DASHBOARD LAYOUT */
-.dashboard-container {
-    display: flex;
-    padding-top: 70px; /* space for navbar */
-}
-
-/* ------------------------------------ */
-/* UPGRADED SIDEBAR STYLES */
-/* ------------------------------------ */
-
-/* SIDEBAR CONTAINER */
+/* ============================ */
+/* SIDEBAR AND PNG ICON STYLES  */
+/* ============================ */
 .sidebar {
-    width: 250px;
-    min-height: 100vh;
-    background: #1a0000; /* Deep, elegant background */
-    padding-top: 30px;
     position: fixed;
-    top: 66px;
+    top: 70px; /* Push down to clear Navbar */
     left: 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); 
+    height: calc(100% - 70px); /* Adjust height to fit remainder of screen */
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 40; /* Lower than navbar */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* AGENT HEADER */
-.sidebar h1 {
-    color: #ff6a00; 
-    text-align: center;
-    margin-bottom: 35px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
+/* --- Sidebar Header --- */
+.sidebar header {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-/* SIDEBAR MENU CONTAINER */
-.sidebar-menu {
-    padding: 0 15px;
-}
-
-/* SIDEBAR LINKS */
-.sidebar a {
+.sidebar header .image-text {
     display: flex;
     align-items: center;
-    padding: 25px 25px;
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 33px;
-    margin-bottom: 30px;
-    transition: background 0.3s, color 0.3s, transform 0.1s;
 }
 
-/* LINK ICON (The blood-drop icon) */
-.sidebar a::before {
-    content: "➤"; 
-    margin-right: 12px;
+.sidebar header .logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+header .image-text .name {
+    margin-top: 2px;
     font-size: 18px;
-    color: #d60000;
-    transition: color 0.3s;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+header .image-text .profession {
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+    color: var(--text-color);
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .image img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+/* --- Menu Items --- */
+.sidebar .menu {
+    margin-top: 10px;
+    display: block; 
+    gap: 0;
+}
+
+.sidebar li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar li a {
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
 }
 
 /* HOVER EFFECT */
-.sidebar a:hover {
-    background: rgba(214, 0, 0, 0.15); 
-    color: white;
-    transform: translateX(3px);
+.sidebar li a:hover {
+    background-color: var(--primary-color);
 }
 
-.sidebar a:hover::before {
-    color: #ff6a00;
+/* This turns the PNG white when hovering (Brightness 0 turns it black, then Invert turns black to white) */
+.sidebar li a:hover .icon {
+    filter: brightness(0) invert(1); 
 }
 
-/* ACTIVE LINK STYLE (Applied to the current page link) */
-.sidebar a.active {
-    background: #d60000; 
-    color: white;
-    font-weight: 700;
-    box-shadow: 0 4px 10px rgba(214, 0, 0, 0.4);
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
 }
 
-.sidebar a.active::before {
-    content: "★"; 
-    color: white;
+/* --- ICON STYLING FOR IMAGES (IMG TAGS) --- */
+.sidebar .icon {
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Image size settings */
+    width: 24px; 
+    height: 24px;
+    object-fit: scale-down;
+    
+    transition: var(--tran-03);
 }
 
-/* ------------------------------------ */
-/* MAIN CONTENT STYLES */
-/* ------------------------------------ */
+.sidebar .text {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    opacity: 1;
+}
+
+/* --- Sidebar Footer / Mode Switch --- */
+.sidebar .menu-bar {
+    height: calc(100% - 150px); /* Adjust based on header size */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar .menu-bar .mode {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .sun-moon {
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode .sun-moon img {
+    position: absolute;
+    width: 20px; /* Set a size for the image */
+    height: 20px;
+    object-fit: contain;
+    /* By default, make it a standard color/brightness */
+}
+
+.mode .sun-moon img.sun {
+    opacity: 0;
+}
+
+.sidebar .bottom-content .toggle-switch {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+/* ============================ */
+/* MAIN CONTENT LAYOUT        */
+/* ============================ */
+.dashboard-container {
+    padding-top: 70px; /* Space for navbar */
+    display: block;
+}
 
 .content {
-    margin-left: 250px;
+    /* Adjusted to match new Sidebar Width (250px) + some spacing */
+    margin-left: 250px; 
     padding: 30px;
-    width: 100%;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
 }
 
 .content h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-    /* Using a vibrant gradient for the title */
-    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #5d40aa, #6c658b);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* CARDS */
+/* ============================ */
+/* CARDS                      */
+/* ============================ */
 .card {
-    background: #ffe3e3; /* Softened background */
+    background: #ffe3e3;
     padding: 30px;
     margin: 20px 0;
     border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15); 
-    border-left: 6px solid #d60000; /* Strong accent border */
+    border-left: 6px solid #17173A;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.20);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.20);
 }
 
 .card h3 {
@@ -201,4 +362,44 @@
 .card p {
     color: #555;
     font-size: 1.1rem;
+}
+
+/* ============================ */
+/* DARK MODE STYLES           */
+/* ============================ */
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* This turns black PNGs to Light Grey/White in Dark Mode */
+body.dark .sidebar .icon {
+    filter: invert(1);
+}
+
+body.dark .sidebar li a:hover .icon {
+    /* Ensure hover still looks white even in dark mode */
+    filter: brightness(0) invert(1); 
+}
+
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
+
+body.dark .mode .sun-moon img.sun {
+    opacity: 1;
+    /* Use a filter to make sure the sun icon looks white in dark mode */
+    filter: invert(1);
+}
+
+body.dark .mode .sun-moon img.moon {
+    opacity: 0;
+}
+
+body.dark .switch::before {
+    left: 20px;
 }

@@ -5,6 +5,7 @@
     <title>Send Alert</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/agent_pages.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
@@ -18,23 +19,93 @@
         <div class="menu">
             <a href="index.html" class="nav-btn">Home</a>
             <a href="about.html" class="nav-btn">Contact</a>
-            <a href="login.html" class="nav-login">Logout</a>
+            <a href="logout.php" class="nav-login">Logout</a>
         </div>
     </div>
 </div>
 
 <div class="dashboard-container">
 
-    <div class="sidebar">
-        <h1>Agent</h1>
-        <div class="sidebar-menu">
-            <a href="dashboard_agent.html">Dashboard</a>
-            <a href="donations.html">Manage Donations</a>
-            <a href="universal_donors.html">Universal Donors</a>
-            <a href="stock.html">Blood Stock</a>
-            <a href="alert.html" class="active">Send Alert</a>
-        </div>
-    </div>
+    <nav class="sidebar">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <!-- Placeholder User Image -->
+                        <img src="Image/employee.png" alt="User">
+                    </span>
+
+                    <div class="text logo-text">
+                        <span class="name">Agent Panel</span>
+                        <span class="profession">Blood Bank</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="menu-links">
+                        
+                        <!-- Dashboard - Using home.png -->
+                        <li class="nav-link">
+                            <a href="dashboard_agent.html">
+                                <img src="Image/home.png" class="icon" alt="Dashboard Icon">
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- Manage Donations - Using donation.png -->
+                        <li class="nav-link">
+                            <a href="donations.html">
+                                <img src="Image/donations.png" class="icon" alt="Donations Icon">
+                                <span class="text nav-text">Donations</span>
+                            </a>
+                        </li>
+
+                        <!-- Universal Donors - Using univ.png -->
+                        <li class="nav-link">
+                            <a href="universal_donors.html">
+                                <img src="Image/univ.png" class="icon" alt="Universal Donors Icon">
+                                <span class="text nav-text">Univ. Donors</span>
+                            </a>
+                        </li>
+
+                        <!-- Blood Stock - Using stock.png -->
+                        <li class="nav-link">
+                            <a href="stock.html">
+                                <img src="Image/stock.png" class="icon" alt="Blood Stock Icon">
+                                <span class="text nav-text">Blood Stock</span>
+                            </a>
+                        </li>
+
+                        <!-- Send Alert - Using alert.png -->
+                        <li class="nav-link">
+                            <a href="alert.html">
+                                <img src="Image/alert.png" class="icon" alt="Alert Icon">
+                                <span class="text nav-text">Send Alert</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Dark Mode Toggle (Kept Boxicons for sun/moon appearance) -->
+                <div class="bottom-content">
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <!-- Using dark.png for the moon icon -->
+                            <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
+                            <!-- Assuming light.png for the sun icon -->
+                            <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </nav> 
 
     <div class="content">
 
@@ -58,6 +129,22 @@
     </div>
 
 </div>
+<script>
+    const body = document.querySelector('body');
+    const modeToggle = document.querySelector('.toggle-switch');
+    const modeText = document.querySelector('.mode-text');
 
+    modeToggle.addEventListener("click", () => {
+        // Toggles the 'dark' class on the body
+        body.classList.toggle("dark");
+
+        // Optional: Updates the text from "Dark mode" to "Light mode"
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light mode";
+        } else {
+            modeText.innerText = "Dark mode";
+        }
+    });
+</script>
 </body>
 </html>

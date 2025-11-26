@@ -1,32 +1,56 @@
+<?php
+// ✅Start session and check if agent is logged in
+session_start();
+if (!isset($_SESSION['agent_logged_in'])) {
+    header("Location: login.html"); 
+    // 🔁Redirect to login if not logged in
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Blood Stock</title>
+    <title>Agent Dashboard</title>
+
+    <!-- CSS Link -->
     <link rel="stylesheet" href="css/dashboard_agent.css">
-    <link rel="stylesheet" href="css/agent_pages.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- NOTE: The Boxicons CDN is REMOVED as we are using PNG images now -->
 </head>
+
 <body>
 
-<div class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png">
-            <span>Donors</span>
-        </div>
+    <!-- =========================
+         NAVBAR 
+    ========================== -->
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Using a placeholder for the blood drop logo -->
+                <img src="Image/drop-of-blood-emoji.png" alt="logo">
+                <span>Donors</span>
+            </div>
 
-        <div class="menu">
-            <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">Contact</a>
-            <a href="logout.php" class="nav-login">Logout</a>
+            <div class="menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn">Contact</a>
+                <a href="logout.php" class="nav-login">Logout</a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="dashboard-container">
+    <!-- =========================
+         LAYOUT CONTAINER
+    ========================== -->
+    <div class="dashboard-container">
 
-    <nav class="sidebar">
+        <!-- =========================
+             SIDEBAR 
+        ========================== -->
+        <nav class="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -107,73 +131,33 @@
             </div>
         </nav>
 
-    <div class="content">
-        
-        <h1>Available Blood Donors</h1>
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <div class="content">
+            <h1>Welcome Agent</h1>
 
-        <div class="blood-grid">
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 A+</span>
-                <span class="blood-count">(1)</span>
+            <div class="card">
+                <h3>Total Donations Today</h3>
+                <p>Placeholder data</p>
             </div>
 
-            <div class="blood-card">
-                <span class="blood-type">🩸 A−</span>
-                <span class="blood-count">(3)</span>
+            <div class="card">
+                <h3>Critical Blood Stock</h3>
+                <p>Placeholder data</p>
             </div>
 
-            <div class="blood-card">
-                <span class="blood-type">🩸 B+</span>
-                <span class="blood-count">(2)</span>
+            <div class="card">
+                <h3>Pending Alerts</h3>
+                <p>Placeholder data</p>
             </div>
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 B−</span>
-                <span class="blood-count">(2)</span>
-            </div>
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 O+</span>
-                <span class="blood-count">(1)</span>
-            </div>
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 O−</span>
-                <span class="blood-count">(1)</span>
-            </div>
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 AB+</span>
-                <span class="blood-count">(5)</span>
-            </div>
-
-            <div class="blood-card">
-                <span class="blood-type">🩸 AB−</span>
-                <span class="blood-count">(0)</span>
-            </div>
-
         </div>
 
     </div>
 
-</div>
-<script>
-    const body = document.querySelector('body');
-    const modeToggle = document.querySelector('.toggle-switch');
-    const modeText = document.querySelector('.mode-text');
+    <!-- JavaScript for Dark Mode (Linked externally) -->
+    <script src="script.js"></script>
 
-    modeToggle.addEventListener("click", () => {
-        // Toggles the 'dark' class on the body
-        body.classList.toggle("dark");
-
-        // Optional: Updates the text from "Dark mode" to "Light mode"
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Light mode";
-        } else {
-            modeText.innerText = "Dark mode";
-        }
-    });
-</script>
 </body>
+
 </html>
