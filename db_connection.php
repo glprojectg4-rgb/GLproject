@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $db = 'blood_management';      // اسم قاعدة البيانات التي أنشأتها في phpMyAdmin
-$user = 'GL_root';            // اسم المستخدم الافتراضي في MAMP
+$user = 'root';            // اسم المستخدم الافتراضي في MAMP
 $pass = 'GL.Root.360';            // كلمة المرور الافتراضية في MAMP
 
 // إذا كنت على macOS، أضف رقم المنفذ (عادة 8889)
