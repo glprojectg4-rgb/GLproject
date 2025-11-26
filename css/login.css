@@ -9,6 +9,7 @@
 body,
 html {
     height: 100%;
+    background: #f8f9fc;
 }
 
 /* Split container */
@@ -99,10 +100,53 @@ html {
 }
 
 /* Login box */
+/* Login box as floating transition card */
+/* Login box as floating card with blue shadow */
 .login-box {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 380px;
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 16px;
+
+    /* خفيف الظل الأزرق حول المكعب */
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25);
+
     text-align: center;
+
+    /* ابدأ المكعب مخفي ومنخفض */
+    opacity: 0;
+    transform: translateY(-30px);
+
+    /* animation عند دخول الصفحة */
+    animation: dropIn 0.8s ease forwards;
+}
+
+/* keyframes لتأثير النزول مع ظهور */
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: عند المرور بالماوس */
+.login-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 102, 255, 0.35);
+    transition: all 0.3s ease;
 }
 
 .login-box h2 {
