@@ -2,13 +2,13 @@
 require_once 'db_connection.php';
 
 // بيانات المستخدم
-$username = 'admin';
-$password = 'admin123';
+$username = 'admin2';
+$password = 'admin1235';
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // تشفير كلمة المرور
-$email = 'admin@example.com';
-$phone = '0555123456';
-$full_name = 'Mohamed Admin';
-$profile_picture = 'uploads/profile/admin.jpg';
+$email = 'admin2@example.com';
+$phone = '0555323456';
+$full_name = 'Med Admin';
+$profile_picture = 'uploads/profile/admin2.jpg';
 $role = 'admin';
 $status = 'active';
 $created_by = 1;
