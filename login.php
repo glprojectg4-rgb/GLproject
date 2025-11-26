@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // التحقق من كلمة المرور
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id_users'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
             // تحديث آخر تسجيل دخول
-            $update = $conn->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
-            $update->bind_param("i", $user['id']);
+            $update = $conn->prepare("UPDATE users SET last_login = NOW() WHERE id_users = ?");
+            $update->bind_param("i", $user['id_users']);
             $update->execute();
 
             // التوجيه حسب نوع الحساب

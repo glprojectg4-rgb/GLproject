@@ -4,14 +4,14 @@ require_once 'db_connection.php';
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
 
-    $stmt = $conn->prepare("SELECT id FROM users WHERE reset_token = ? AND reset_token_expires > NOW()");
+    $stmt = $conn->prepare("SELECT id_users FROM users WHERE reset_token = ? AND reset_token_expires > NOW()");
     $stmt->bind_param("s", $token);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        $userId = $user['id'];
+        $userId = $user['id_users'];
     } else {
         die("Invalid or expired reset link.");
     }
@@ -19,7 +19,7 @@ if (isset($_GET['token'])) {
     $userId = $_POST['user_id'];
     $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("UPDATE users SET password = ?, reset_token = NULL, reset_token_expires = NULL WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE users SET password = ?, reset_token = NULL, reset_token_expires = NULL WHERE id_users = ?");
     $stmt->bind_param("si", $newPassword, $userId);
     $stmt->execute();
 
