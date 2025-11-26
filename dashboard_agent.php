@@ -1,0 +1,70 @@
+<?php
+// ✅ Start session and check if agent is logged in
+session_start();
+if (!isset($_SESSION['agent_logged_in'])) {
+    header("Location: login.html"); // 🔁 Redirect to login if not logged in
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png">
+                <span>Donors</span>
+            </div>
+
+            <div class="menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn">Contact</a>
+                <a href="logout.php" class="nav-login">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+
+        <div class="sidebar">
+            <h1>Agent</h1>
+            <div class="sidebar-menu">
+                <a href="dashboard_agent.php" class="active">Dashboard</a>
+                <a href="donations.html">Manage Donations</a>
+                <a href="universal_donors.html">Universal Donors</a>
+                <a href="stock.html">Blood Stock</a>
+                <a href="alert.html">Send Alert</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Welcome Agent</h1>
+
+            <div class="card">
+                <h3>Total Donations Today</h3>
+                <p>Placeholder data</p>
+            </div>
+
+            <div class="card">
+                <h3>Critical Blood Stock</h3>
+                <p>Placeholder data</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending Alerts</h3>
+                <p>Placeholder data</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

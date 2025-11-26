@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['agent_logged_in'] = true;
 require_once 'db_connection.php'; // ملف الاتصال بقاعدة البيانات
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: dashboard_manager.html");
                     break;
                 case 'agent':
-                    header("Location: dashboard_agent.html");
+                    header("Location: dashboard_agent.php");
                     break;
             }
             exit;
