@@ -101,51 +101,45 @@ html {
 
 /* Login box */
 /* Login box as floating transition card */
-/* Login box as floating card with blue shadow */
 .login-box {
     position: relative;
+    /* ensure transforms work */
     z-index: 2;
+    /* above background */
     width: 100%;
     max-width: 380px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.98);
     padding: 35px 40px;
     border-radius: 16px;
-
-    /* خفيف الظل الأزرق حول المكعب */
-    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25);
-
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    /* stronger shadow */
     text-align: center;
 
-    /* ابدأ المكعب مخفي ومنخفض */
+    /* Start invisible and slightly down */
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(30px);
 
-    /* animation عند دخول الصفحة */
-    animation: dropIn 0.8s ease forwards;
+    /* Animation */
+    animation: slideFadeIn 0.7s ease forwards;
 }
 
-/* keyframes لتأثير النزول مع ظهور */
-@keyframes dropIn {
-    0% {
+/* Keyframes for fade + slide up */
+@keyframes slideFadeIn {
+    from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(30px);
     }
 
-    50% {
-        opacity: 0.6;
-        transform: translateY(10px);
-    }
-
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Optional: عند المرور بالماوس */
+/* Optional hover lift effect */
 .login-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 102, 255, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
     transition: all 0.3s ease;
 }
 
