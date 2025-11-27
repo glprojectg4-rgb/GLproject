@@ -129,22 +129,7 @@
     </div>
 
 </div>
-<script>
-    const body = document.querySelector('body');
-    const modeToggle = document.querySelector('.toggle-switch');
-    const modeText = document.querySelector('.mode-text');
-
-    modeToggle.addEventListener("click", () => {
-        // Toggles the 'dark' class on the body
-        body.classList.toggle("dark");
-
-        // Optional: Updates the text from "Dark mode" to "Light mode"
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Light mode";
-        } else {
-            modeText.innerText = "Dark mode";
-        }
-    });
-</script>
+<!-- JavaScript for Dark Mode (Linked externally) -->
+    <script src="script.js"></script>
 </body>
 </html>

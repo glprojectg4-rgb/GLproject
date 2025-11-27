@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Port = 587;
 
             // Sender and recipient
-            $mail->setFrom('your_email@gmail.com', 'Life Saver System');
+            $mail->setFrom('your_email@gmail.com', 'Blood Bank System');
             $mail->addAddress($email);
 
             // Email content
