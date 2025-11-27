@@ -67,7 +67,7 @@ if (!isset($_SESSION['agent_logged_in'])) {
 
                         <!-- Dashboard - Using home.png -->
                         <li class="nav-link">
-                            <a href="dashboard_agent.html">
+                            <a href="dashboard_agent.php">
                                 <img src="Image/home.png" class="icon" alt="Dashboard Icon">
                                 <span class="text nav-text">Dashboard</span>
                             </a>

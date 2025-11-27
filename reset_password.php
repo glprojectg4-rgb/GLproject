@@ -36,7 +36,7 @@ if (isset($_GET['token'])) {
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
