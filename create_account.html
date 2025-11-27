@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب جديد</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>إنشاء حساب مستخدم جديد</h2>
+        <form action="create_account.php" method="POST">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="full_name" required>
+
+            <label>اسم المستخدم:</label>
+            <input type="text" name="username" required>
+
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="email" required>
+
+            <label>كلمة المرور:</label>
+            <input type="password" name="password" required>
+
+            <label>رقم الهاتف:</label>
+            <input type="text" name="phone" required>
+
+            <label>نوع الحساب:</label>
+            <select name="role" required>
+                <option value="" disabled selected>اختر نوع الحساب</option>
+                <option value="agent">وكيل (Agent)</option>
+                <option value="manager">مسؤول جمع (Collection Manager)</option>
+            </select>
+
+            <label>الحالة:</label>
+            <select name="status" required>
+                <option value="active">نشط</option>
+                <option value="disabled">معطل</option>
+            </select>
+
+            <button type="submit">إنشاء الحساب</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -10,7 +10,7 @@
 
 <body>
     <div class="split-container">
-        <!-- Left side: login form, logo and motivation -->
+        <!-- Left side:  login form, logo and motivation -->
         <div class="left-side">
             <div class="logo">
                 <img src="Image/drop-of-blood-emoji.png" alt="Logo">
@@ -21,22 +21,26 @@
                 <p class="subtitle">Sign in to your account</p>
                 <form action="login.php" method="POST">
                     <div class="input-group">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" name="username" placeholder="Username" required>
                     </div>
+
                     <div class="input-group">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" name="password" placeholder="Password" required>
                     </div>
+
                     <div class="input-group">
-                        <select required>
+                        <select name="account_type" required>
                             <option value="" disabled selected>Select Account Type</option>
                             <option value="admin">Admin</option>
                             <option value="manager">Manager</option>
                             <option value="agent">Agent</option>
                         </select>
                     </div>
+
                     <button type="submit" class="btn">Login</button>
-                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+                    <p class="forgot"><a href="forgot_password.html">Forgot Password?</a></p>
                 </form>
+
             </div>
             <div class="motivation">
                 <p>"Every drop counts. Together, we save lives!"</p>
@@ -46,7 +50,7 @@
         <!-- Right side: image + links -->
         <div class="right-side">
             <nav>
-                <a href="home.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
             </nav>
             <img src="Image/blood-donor.png" alt="Blood Donation">

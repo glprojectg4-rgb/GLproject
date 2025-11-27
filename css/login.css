@@ -9,6 +9,7 @@
 body,
 html {
     height: 100%;
+    background: #f8f9fc;
 }
 
 /* Split container */
@@ -99,10 +100,47 @@ html {
 }
 
 /* Login box */
+/* Login box as floating transition card */
 .login-box {
+    position: relative;
+    /* ensure transforms work */
+    z-index: 2;
+    /* above background */
     width: 100%;
     max-width: 380px;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 35px 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    /* stronger shadow */
     text-align: center;
+
+    /* Start invisible and slightly down */
+    opacity: 0;
+    transform: translateY(30px);
+
+    /* Animation */
+    animation: slideFadeIn 0.7s ease forwards;
+}
+
+/* Keyframes for fade + slide up */
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional hover lift effect */
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+    transition: all 0.3s ease;
 }
 
 .login-box h2 {
