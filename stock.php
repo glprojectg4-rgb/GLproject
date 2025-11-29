@@ -1,3 +1,21 @@
+<?php
+include "db_connection.php";
+
+$query = "
+    SELECT CONCAT(blood_type, rhesus_factor) AS type, COUNT(*) AS total
+    FROM donors
+    GROUP BY type
+";
+
+$result = $conn->query($query);
+
+$blood_stock = [];
+
+while ($row = $result->fetch_assoc()) {
+    $blood_stock[$row["type"]] = $row["total"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,47 +131,47 @@
 
         <div class="blood-grid">
 
-            <div class="blood-card">
-                <span class="blood-type">🩸 A+</span>
-                <span class="blood-count">(1)</span>
+    <div class="blood-card">
+        <span class="blood-type">🩸 A+</span>
+        <span class="blood-count">(<?= $blood_stock['A+'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 A−</span>
-                <span class="blood-count">(3)</span>
+                <span class="blood-count">(<?= $blood_stock['A-'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 B+</span>
-                <span class="blood-count">(2)</span>
+                <span class="blood-count">(<?= $blood_stock['B+'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 B−</span>
-                <span class="blood-count">(2)</span>
+                <span class="blood-count">(<?= $blood_stock['B-'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 O+</span>
-                <span class="blood-count">(1)</span>
+                <span class="blood-count">(<?= $blood_stock['O+'] ?? 0 ?>)</span>
+        
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 O−</span>
-                <span class="blood-count">(1)</span>
+                <span class="blood-count">(<?= $blood_stock['O-'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 AB+</span>
-                <span class="blood-count">(5)</span>
+                <span class="blood-count">(<?= $blood_stock['AB+'] ?? 0 ?>)</span>
             </div>
-
+        
             <div class="blood-card">
                 <span class="blood-type">🩸 AB−</span>
-                <span class="blood-count">(0)</span>
-            </div>
+                <span class="blood-count">(<?= $blood_stock['AB-'] ?? 0 ?>)</span>
+            </div></div>
 
-        </div>
 
     </div>
 
