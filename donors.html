@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Donors</title>
+
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="Image/drop-of-blood-emoji.png">
+            <span>Donors</span>
+        </div>
+        <div class="menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="logout.php" class="nav-login">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image"><img src="Image/manager.png"></span>
+            <div class="text logo-text">
+                <span class="name">Manager</span>
+                <span class="profession">Blood Bank</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="dashboard_manager.php"><img src="Image/home.png" class="icon"><span class="text">Dashboard</span></a></li>
+            <li><a href="donors.html" class="active"><img src="Image/donations.png" class="icon"><span class="text">Donors</span></a></li>
+            <li><a href="locations.html"><img src="Image/location.png" class="icon"><span class="text">Locations</span></a></li>
+            <li><a href="communication.html"><img src="Image/message.png" class="icon"><span class="text">Communication</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+    <h1>Manage Donors</h1>
+
+    <!-- ADD DONOR FORM -->
+    <div class="form-card">
+        <h3>Add Donor</h3>
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Donor Name">
+
+            <label>Date of Birth</label>
+            <input type="date">
+
+            <label>Blood Type</label>
+            <select>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>O+</option><option>O-</option>
+                <option>AB+</option><option>AB-</option>
+            </select>
+
+            <label>Address</label>
+            <input type="text" placeholder="Address">
+
+            <label>Phone</label>
+            <input type="text" placeholder="Phone Number">
+
+            <button class="submit-btn">Add Donor</button>
+        </form>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <h3>Donors List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>DOB</th><th>Blood</th><th>Phone</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Example Name</td>
+                    <td>2001-05-10</td>
+                    <td>O+</td>
+                    <td>0555555555</td>
+                    <td>Edit | Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

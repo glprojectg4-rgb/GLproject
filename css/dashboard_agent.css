@@ -1,17 +1,9 @@
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
 
 * {
     margin: 0;
@@ -28,7 +20,6 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
-
     /* ====== Transitions ====== */
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -43,7 +34,7 @@ body {
 }
 
 /* ============================ */
-/* NAVBAR                     */
+/* NAVBAR */
 /* ============================ */
 .navbar {
     position: fixed;
@@ -53,7 +44,7 @@ body {
     background: #17173A;
     backdrop-filter: blur(8px);
     padding: 10px 0;
-    height: 70px;
+    height: 63px;
 }
 
 .nav-container {
@@ -61,7 +52,7 @@ body {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo {
@@ -72,7 +63,7 @@ body {
 
 .logo span {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -84,7 +75,7 @@ body {
 
 .nav-btn {
     color: white;
-    padding: 10px 18px;
+    padding: 8px 18px;
     text-decoration: none;
     border-radius: 6px;
     font-size: 16px;
@@ -111,18 +102,21 @@ body {
 }
 
 /* ============================ */
-/* SIDEBAR AND PNG ICON STYLES  */
+/* SIDEBAR AND PNG ICON STYLES */
 /* ============================ */
 .sidebar {
     position: fixed;
-    top: 70px; /* Push down to clear Navbar */
+    top: 64px;
+    /* Push down to clear Navbar */
     left: 0;
-    height: calc(100% - 70px); /* Adjust height to fit remainder of screen */
-    width: 250px;
-    padding: 10px 14px;
+    height: calc(100% - 70px);
+    /* Adjust height to fit remainder of screen */
+    width: 190px;
+    padding: 10px 10px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 40; /* Lower than navbar */
+    z-index: 40;
+    /* Lower than navbar */
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -160,7 +154,7 @@ header .image-text .profession {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 60px;
+    min-width: 50px;
     border-radius: 6px;
 }
 
@@ -172,12 +166,12 @@ header .image-text .profession {
 /* --- Menu Items --- */
 .sidebar .menu {
     margin-top: 10px;
-    display: block; 
+    display: block;
     gap: 0;
 }
 
 .sidebar li {
-    height: 50px;
+    height: 56px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -203,7 +197,7 @@ header .image-text .profession {
 
 /* This turns the PNG white when hovering (Brightness 0 turns it black, then Invert turns black to white) */
 .sidebar li a:hover .icon {
-    filter: brightness(0) invert(1); 
+    filter: brightness(0) invert(1);
 }
 
 .sidebar li a:hover .text {
@@ -212,24 +206,23 @@ header .image-text .profession {
 
 /* --- ICON STYLING FOR IMAGES (IMG TAGS) --- */
 .sidebar .icon {
-    min-width: 60px;
+    min-width:  40px;
     border-radius: 6px;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    align-items: last baseline;
+    justify-content: left;
     /* Image size settings */
-    width: 24px; 
-    height: 24px;
+    width: -10px;
+    height: 26px;
     object-fit: scale-down;
-    
     transition: var(--tran-03);
+    margin-right: 8px;
 }
 
 .sidebar .text {
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 300;
     white-space: nowrap;
     color: var(--text-color);
     transition: var(--tran-03);
@@ -238,7 +231,8 @@ header .image-text .profession {
 
 /* --- Sidebar Footer / Mode Switch --- */
 .sidebar .menu-bar {
-    height: calc(100% - 150px); /* Adjust based on header size */
+    height: calc(100% - 150px);
+    /* Adjust based on header size */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -251,14 +245,15 @@ header .image-text .profession {
 
 .sidebar .menu-bar .mode {
     border-radius: 6px;
-    background-color: var(--primary-color-light);
+    
     position: relative;
     transition: var(--tran-05);
+    margin-top: 30px;
 }
 
 .menu-bar .mode .sun-moon {
     height: 50px;
-    width: 60px;
+    width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,8 +261,9 @@ header .image-text .profession {
 
 .mode .sun-moon img {
     position: absolute;
-    width: 20px; /* Set a size for the image */
-    height: 20px;
+    width: 70px;
+    /* Set a size for the image */
+    height: 22px;
     object-fit: contain;
     /* By default, make it a standard color/brightness */
 }
@@ -281,7 +277,7 @@ header .image-text .profession {
     right: 0;
     top: 0;
     height: 100%;
-    min-width: 60px;
+    min-width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,17 +308,18 @@ header .image-text .profession {
 }
 
 /* ============================ */
-/* MAIN CONTENT LAYOUT        */
+/* MAIN CONTENT LAYOUT */
 /* ============================ */
 .dashboard-container {
-    padding-top: 70px; /* Space for navbar */
+    padding-top: 70px;
+    /* Space for navbar */
     display: block;
 }
 
 .content {
     /* Adjusted to match new Sidebar Width (250px) + some spacing */
-    margin-left: 250px; 
-    padding: 30px;
+    margin-left: 210px;
+    padding: 15px;
     width: calc(100% - 250px);
     transition: var(--tran-05);
 }
@@ -334,13 +331,14 @@ header .image-text .profession {
     background: linear-gradient(90deg, #5d40aa, #6c658b);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 /* ============================ */
-/* CARDS                      */
+/* CARDS */
 /* ============================ */
 .card {
-    background: #ffe3e3;
+    background: #b5ced3;
     padding: 30px;
     margin: 20px 0;
     border-radius: 12px;
@@ -366,10 +364,10 @@ header .image-text .profession {
 }
 
 /* ============================ */
-/* DARK MODE STYLES           */
+/* DARK MODE STYLES */
 /* ============================ */
 body.dark {
-    --header-color : white;
+    --header-color: white;
     --body-color: #18191a;
     --sidebar-color: #242526;
     --primary-color: #3a3b3c;
@@ -385,7 +383,7 @@ body.dark .sidebar .icon {
 
 body.dark .sidebar li a:hover .icon {
     /* Ensure hover still looks white even in dark mode */
-    filter: brightness(0) invert(1); 
+    filter: brightness(0) invert(1);
 }
 
 body.dark .sidebar li a:hover .text {

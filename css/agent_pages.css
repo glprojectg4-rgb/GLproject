@@ -1,10 +1,10 @@
 /* FORM CARD */
 .form-card {
-    background: #ffe3e3;
+    background: #b5ced3;
     padding: 30px;
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 12px;
-    border-left: 6px solid #17173A;
+    border-left: 8px solid #17173A;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 

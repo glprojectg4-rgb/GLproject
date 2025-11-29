@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Communication</title>
+
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="Image/drop-of-blood-emoji.png">
+            <span>Donors</span>
+        </div>
+        <div class="menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="logout.php" class="nav-login">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image"><img src="Image/manager.png"></span>
+            <div class="text logo-text">
+                <span class="name">Manager</span>
+                <span class="profession">Blood Bank</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="dashboard_manager.php"><img src="Image/home.png" class="icon"><span class="text">Dashboard</span></a></li>
+            <li><a href="donors.html"><img src="Image/donations.png" class="icon"><span class="text">Donors</span></a></li>
+            <li><a href="locations.html"><img src="Image/location.png" class="icon"><span class="text">Locations</span></a></li>
+            <li><a href="communication.html" class="active"><img src="Image/message.png" class="icon"><span class="text">Communication</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+    <h1>Communication</h1>
+
+    <div class="form-card">
+        <h3>Send Message</h3>
+        <form>
+
+            <label>Select Recipient</label>
+            <select>
+                <option>Donor</option>
+                <option>CTS Center</option>
+                <option>Association</option>
+                <option>Partner</option>
+            </select>
+
+            <label>Message</label>
+            <input type="text" placeholder="Type your message...">
+
+            <button class="submit-btn">Send</button>
+        </form>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

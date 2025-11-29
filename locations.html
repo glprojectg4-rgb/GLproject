@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Locations</title>
+
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="Image/drop-of-blood-emoji.png">
+            <span>Donors</span>
+        </div>
+        <div class="menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="logout.php" class="nav-login">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image"><img src="Image/manager.png"></span>
+            <div class="text logo-text">
+                <span class="name">Manager</span>
+                <span class="profession">Blood Bank</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="dashboard_manager.php"><img src="Image/home.png" class="icon"><span class="text">Dashboard</span></a></li>
+            <li><a href="donors.html"><img src="Image/donations.png" class="icon"><span class="text">Donors</span></a></li>
+            <li><a href="locations.html" class="active"><img src="Image/location.png" class="icon"><span class="text">Locations</span></a></li>
+            <li><a href="communication.html"><img src="Image/message.png" class="icon"><span class="text">Communication</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+    <h1>Locations</h1>
+
+    <!-- ADD CTS CENTER -->
+    <div class="form-card">
+        <h3>Add CTS Center</h3>
+        <form>
+            <label>Center Name</label>
+            <input type="text">
+
+            <label>Address</label>
+            <input type="text">
+
+            <label>Phone</label>
+            <input type="text">
+
+            <button class="submit-btn">Add CTS</button>
+        </form>
+    </div>
+
+    <!-- CTS TABLE -->
+    <div class="table-card">
+        <h3>CTS Centers List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>Address</th><th>Phone</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CTS Example</td>
+                    <td>Main City</td>
+                    <td>0555555555</td>
+                    <td>Edit | Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- DONATION SITES -->
+    <div class="form-card">
+        <h3>Add Donation Site</h3>
+        <form>
+            <label>Site Name</label>
+            <input type="text">
+
+            <label>Address</label>
+            <input type="text">
+
+            <button class="submit-btn">Add Site</button>
+        </form>
+    </div>
+
+    <!-- SITES TABLE -->
+    <div class="table-card">
+        <h3>Donation Sites List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>Address</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Site Example</td>
+                    <td>City Center</td>
+                    <td>Edit | Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
