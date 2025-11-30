@@ -107,7 +107,7 @@ html {
     position: absolute;
     top: 20px;
     right: 40px;
-    z-index: 5;
+    z-index: 2;
 }
 
 .right-side nav a {
