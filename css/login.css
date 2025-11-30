@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,10 @@
 body,
 html {
     height: 100%;
-    background: #f8f9fc;
+    --body-color: #f8f9fc;
+    --text-color: #333;
+    background: var(--body-color);
+    color: var(--text-color);
 }
 
 /* Split container */
@@ -18,19 +21,19 @@ html {
     height: 100vh;
 }
 
-/* Left side: login */
+/* Left side */
 .left-side {
     flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: var(--body-color);
     padding: 40px;
     position: relative;
+    color: var(--text-color);
 }
 
-/* Logo and name */
 .logo {
     position: absolute;
     top: 20px;
@@ -48,10 +51,9 @@ html {
 .logo span {
     font-size: 25px;
     font-weight: bold;
-    color: #000000;
+    color: var(--text-color);
 }
 
-/* Motivation text */
 .motivation {
     position: absolute;
     bottom: 20px;
@@ -61,35 +63,57 @@ html {
 
 .motivation p {
     font-size: 16px;
-    color: #333;
+    color: var(--text-color);
     font-style: oblique;
 }
 
-/* Right side: image */
+/* Right side */
 .right-side {
     flex: 3;
     position: relative;
     overflow: hidden;
 }
 
-/* Image */
-.right-side img {
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.right-hero {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-/* Links without background */
+/* Slide animations */
+.right-hero.slide-out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.right-hero.slide-in-right {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+/* Navbar */
 .right-side nav {
     position: absolute;
     top: 20px;
     right: 40px;
+    z-index: 5;
 }
 
 .right-side nav a {
     margin-left: 20px;
     text-decoration: none;
-    color: #427379;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 16px;
     transition: 0.3s;
@@ -99,91 +123,61 @@ html {
     color: #4190f1;
 }
 
-/* Login box */
-/* Login box as floating transition card */
-.login-box {
-    position: relative;
-    /* ensure transforms work */
-    z-index: 2;
-    /* above background */
+/* Form cards */
+.form-card {
+    position: absolute;
     width: 100%;
     max-width: 380px;
     background: rgba(255, 255, 255, 0.98);
     padding: 35px 40px;
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    /* stronger shadow */
     text-align: center;
-
-    /* Start invisible and slightly down */
     opacity: 0;
-    transform: translateY(30px);
-
-    /* Animation */
-    animation: slideFadeIn 0.7s ease forwards;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
 }
 
-/* Keyframes for fade + slide up */
-@keyframes slideFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.form-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
 }
 
-/* Optional hover lift effect */
-.login-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
-    transition: all 0.3s ease;
+.form-card.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    z-index: 1;
 }
 
-.login-box h2 {
+.form-card h2 {
     font-size: 28px;
-    color: #333;
     margin-bottom: 10px;
+    color: var(--text-color);
 }
 
-.login-box .subtitle {
+.subtitle {
     font-size: 14px;
     color: #777;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .input-group {
     margin-bottom: 20px;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: .3s;
-}
-
-.input-group input:focus {
-    border-color: #6a11cb;
-    box-shadow: 0 0 8px rgba(106, 17, 203, .3);
-}
-
+.input-group input,
 .input-group select {
     width: 100%;
     padding: 12px 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    outline: none;
-    transition: .3s;
     background: #fff;
     font-size: 14px;
+    transition: .3s;
 }
 
+.input-group input:focus,
 .input-group select:focus {
     border-color: #6a11cb;
     box-shadow: 0 0 8px rgba(106, 17, 203, .3);
@@ -206,18 +200,21 @@ html {
     box-shadow: 0 5px 15px rgba(106, 17, 203, .3);
 }
 
-.forgot {
+/* Links */
+.forgot,
+.back {
     margin-top: 15px;
     font-size: 13px;
 }
 
-.forgot a {
+.forgot a,
+.back a {
     color: #6a11cb;
     text-decoration: none;
-    transition: .3s;
 }
 
-.forgot a:hover {
+.forgot a:hover,
+.back a:hover {
     text-decoration: underline;
 }
 
@@ -229,7 +226,6 @@ html {
 
     .left-side,
     .right-side {
-        flex: none;
         height: 50vh;
     }
 
@@ -242,8 +238,177 @@ html {
         position: static;
         margin-bottom: 10px;
     }
+}
 
-    .motivation p {
-        font-size: 14px;
-    }
+/* Dark Mode */
+body.dark {
+    --body-color: #18191a;
+    --text-color: #ccc;
+}
+
+body.dark .form-card {
+    background: #242526;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .split-container {
+    flex-direction: row-reverse;
+}
+
+/* Dark Mode Toggle */
+.bottom-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.mode {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sun-moon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    transition: transform .45s ease, opacity .45s ease;
+}
+
+.moon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.sun {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+body.dark .moon {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+body.dark .sun {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mode-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 24px;
+    background: #cbd5e1;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background .3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-switch:active .switch {
+    transform: scale(1.1);
+}
+
+.switch {
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+body.dark .switch {
+    transform: translateX(26px);
+    background: #334155;
+}
+
+/* Left side slide */
+.left-side.slide-right {
+    transform: translateX(50%);
+    /* move only half way */
+    transition: transform 0.8s ease;
+}
+
+.left-side.slide-left {
+    transform: translateX(-50%);
+    /* move half way back */
+    transition: transform 0.8s ease;
+}
+
+
+/* Hero images */
+.right-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+.right-hero.loaded {
+    opacity: 1;
+    /* show when fully loaded */
+}
+
+/* Old hero slides out */
+.right-hero.slide-out-left {
+    transform: translateX(-100%);
+}
+
+.right-hero.slide-out-right {
+    transform: translateX(100%);
+}
+
+/* New hero starts outside screen */
+.right-hero.new.from-left {
+    transform: translateX(-100%);
+}
+
+.right-hero.new.from-right {
+    transform: translateX(100%);
+}
+
+/* Animate new hero in */
+.right-hero.new.show {
+    transform: translateX(0);
+}
+
+.right-hero,
+.right-hero.new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Fill container */
+    object-position: center;
+    /* Center image */
+    transition: transform 0.8s ease;
+}
+.left-side {
+    z-index: 1;
 }
