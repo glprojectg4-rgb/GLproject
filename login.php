@@ -31,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // التوجيه حسب نوع الحساب
             switch ($user['role']) {
                 case 'admin':
-                    header("Location: dashboard_admin.html");
+                    header("Location: dashboard_admin.php");
                     break;
                 case 'manager':
-                    header("Location: dashboard_manager.html");
+                    header("Location: dashboard_manager.php");
                     break;
                 case 'agent':
                     header("Location: dashboard_agent.php");

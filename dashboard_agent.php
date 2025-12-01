@@ -91,7 +91,7 @@ if (!isset($_SESSION['agent_logged_in'])) {
 
                         <!-- Blood Stock - Using stock.png -->
                         <li class="nav-link">
-                            <a href="stock.html">
+                            <a href="stock.php">
                                 <img src="Image/stock.png" class="icon" alt="Blood Stock Icon">
                                 <span class="text nav-text">Blood Stock</span>
                             </a>
