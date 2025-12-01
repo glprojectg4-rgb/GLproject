@@ -78,6 +78,15 @@ th, td {
     font-weight: bold;
 }
 
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color); /* Auto theme color */
+    transition: 0.3s;
+}
+
 /* BLOOD STOCK GRID */
 .blood-grid {
     display: grid;

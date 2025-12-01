@@ -28,27 +28,67 @@
 
 <div class="dashboard-container">
 
-<!-- SIDEBAR -->
-<nav class="sidebar">
-    <header>
-        <div class="image-text">
-            <span class="image"><img src="Image/manager.png"></span>
-            <div class="text logo-text">
-                <span class="name">Manager</span>
-                <span class="profession">Blood Bank</span>
+ <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image"><img src="Image/user2.png"></span>
+                <div class="text logo-text">
+                    <span class="name">Manager</span>
+                    <span class="profession">Blood Bank</span>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <div class="menu-bar">
-        <ul class="menu-links">
-            <li><a href="dashboard_manager.php"><img src="Image/home.png" class="icon"><span class="text">Dashboard</span></a></li>
-            <li><a href="donors.html"><img src="Image/donations.png" class="icon"><span class="text">Donors</span></a></li>
-            <li><a href="locations.html"><img src="Image/location.png" class="icon"><span class="text">Locations</span></a></li>
-            <li><a href="communication.html" class="active"><img src="Image/message.png" class="icon"><span class="text">Communication</span></a></li>
-        </ul>
-    </div>
-</nav>
+        <div class="menu-bar">
+            <ul class="menu-links">
+
+                <li class="nav-link">
+                    <a href="dashboard_manager.php" class="active">
+                        <img src="Image/home.png" class="icon">
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="donors.html">
+                        <img src="Image/donations.png" class="icon">
+                        <span class="text nav-text">Donors</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="locations.html">
+                        <img src="Image/location.png" class="icon">
+                        <span class="text nav-text">Locations</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="communication.html">
+                        <img src="Image/message.png" class="icon">
+                        <span class="text nav-text">Communicate</span>
+                    </a>
+                </li>
+            </ul>
+             <!-- Dark Mode Toggle (Kept Boxicons for sun/moon appearance) -->
+                <div class="bottom-content">
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <!-- Using dark.png for the moon icon -->
+                            <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
+                            <!-- Assuming light.png for the sun icon -->
+                            <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </div>
+        </div>
+    </nav>
 
 <!-- CONTENT -->
 <div class="content">
@@ -76,6 +116,7 @@
 </div>
 
 </div>
-
+<!-- JavaScript for Dark Mode (Linked externally) -->
+    <script src="script.js"></script>
 </body>
 </html>
