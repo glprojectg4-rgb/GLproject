@@ -6,15 +6,18 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* ============================ */
 /* NAVBAR */
+/* ============================ */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 50;
-    background: rgba(0, 0, 0, 0.55);
+    background: #17173A;
     backdrop-filter: blur(8px);
     padding: 10px 0;
+    height: 63px;
 }
 
 .nav-container {
@@ -22,7 +25,7 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo {
@@ -33,7 +36,7 @@
 
 .logo span {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -45,19 +48,18 @@
 
 .nav-btn {
     color: white;
-    padding: 10px 18px;
+    padding: 8px 18px;
     text-decoration: none;
     border-radius: 6px;
     font-size: 16px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     transition: 0.25s;
 }
 
 .nav-btn:hover {
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.25);
 }
 
-/* LOGIN BUTTON */
 .nav-login {
     background: #d60000;
     color: white;
