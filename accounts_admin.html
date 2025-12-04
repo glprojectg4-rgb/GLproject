@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Accounts</title>
+
+    <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="Image/drop-of-blood-emoji.png">
+            <span>Donors</span>
+        </div>
+        <div class="menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">About</a>
+            <a href="logout.php" class="nav-login">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image"><img src="Image/user1.png"></span>
+                <div class="text logo-text">
+                    <span class="name">Admin</span>
+                    <span class="profession">Control Panel</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="menu-bar">
+            <ul class="menu-links">
+                <li class="nav-link"><a href="dashboard_admin.php"><img src="Image/home.png" class="icon"><span class="text nav-text">Dashboard</span></a></li>
+                <li class="nav-link"><a href="accounts_admin.html" class="active"><img src="Image/add-user.png" class="icon"><span class="text nav-text">Accounts</span></a></li>
+                <li class="nav-link"><a href="diseases_admin.html"><img src="Image/virus.png" class="icon"><span class="text nav-text">Diseases</span></a></li>
+                <li class="nav-link"><a href="admin_alerts.html"><img src="Image/danger.png" class="icon"><span class="text nav-text">System Alerts</span></a></li>
+            </ul>
+
+            <!-- DARK MODE -->
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="sun-moon">
+                        <img src="Image/dark.png" class="icon moon">
+                        <img src="Image/light.png" class="icon sun">
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+                    <div class="toggle-switch"><span class="switch"></span></div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <h1>Manage Accounts</h1>
+
+        <!-- ADD ACCOUNT FORM -->
+        <div class="form-card">
+            <h3>Add New Account</h3>
+
+            <form>
+                <label>Full Name</label>
+                <input type="text">
+
+                <label>Email</label>
+                <input type="email">
+
+                <label>Role</label>
+                <select>
+                    <option>Agent</option>
+                    <option>Manager</option>
+                    <option>Admin</option>
+                </select>
+
+                <label>Password</label>
+                <input type="password">
+
+                <button class="submit-btn">Add Account</button>
+            </form>
+        </div>
+
+        <!-- ACCOUNTS TABLE -->
+        <div class="table-card">
+            <h3>Existing Accounts</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Example User</td>
+                    <td>user@mail.com</td>
+                    <td>Manager</td>
+                    <td>Edit | Delete</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

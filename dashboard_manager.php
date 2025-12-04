@@ -1,4 +1,14 @@
 
+<?php
+// ✅Start session and check if agent is logged in
+session_start();
+if (!isset($_SESSION['manager_logged_in'])) {
+    header("Location: login.html"); 
+    // 🔁Redirect to login if not logged in
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
