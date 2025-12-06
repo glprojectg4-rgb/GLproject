@@ -36,7 +36,7 @@ while ($row = $result->fetch_assoc()) {
 
         <div class="menu">
             <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="about.html" class="nav-btn">About</a>
             <a href="logout.php" class="nav-login">Logout</a>
         </div>
     </div>
