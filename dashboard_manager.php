@@ -30,7 +30,7 @@ if (!isset($_SESSION['manager_logged_in'])) {
         </div>
         <div class="menu">
             <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">Contact</a>
+            <a href="about.html" class="nav-btn">About</a>
             <a href="logout.php" class="nav-login">Logout</a>
         </div>
     </div>
