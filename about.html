@@ -4,94 +4,107 @@
     <meta charset="UTF-8">
     <title>About Us - Donors</title>
     <link rel="stylesheet" href="css/about.css">
+    
 </head>
 
 <body>
 
-<!-- NAVBAR (نفس التصميم عندك) -->
 <div class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png">
+            <img src="Image/drop-of-blood-emoji.png" alt="Blood Drop Logo">
             <span>Donors</span>
         </div>
 
         <div class="menu">
             <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">About</a>
+            <a href="about.html" class="nav-btn active">About</a>
             <a href="login.html" class="nav-login">Login</a>
         </div>
     </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
-    <img src="Image/bloody.png" class="hero-bg">
-    <div class="overlay"></div>
-
-    <div class="hero-text">
+    <div class="hero-bg-container">
+        <img src="Image/bloody.png" class="hero-bg" alt="Abstract blood donation background">
+    </div>
+    <div class="hero-content">
         <h1>About Our Blood Bank</h1>
         <p>Saving lives through secure blood donations, fast response, and advanced donor management.</p>
     </div>
 </section>
 
-<!-- ABOUT CONTENT -->
-<section class="about-section">
+<div class="about-container">
 
-    <h2>➤ Our Mission</h2>
-    <p>
-        To ensure safe, reliable, and accessible blood supplies by connecting donors, hospitals, 
-        and emergency services through an efficient digital platform.
-    </p>
+    <section class="mission-vision-section">
+        <div class="card mission-card">
+            <h2 class="section-title">✨ Our Mission</h2>
+            <p>
+                To ensure **safe, reliable, and accessible** blood supplies by connecting donors, hospitals, 
+                and emergency services through an efficient digital platform. We are committed to fostering 
+                a continuous and ready supply of life-saving blood components.
+            </p>
+        </div>
+        
+        <div class="card vision-card">
+            <h2 class="section-title">🔭 Our Vision</h2>
+            <p>
+                A world where no patient suffers due to lack of blood. We aim to make blood donation 
+                faster, smarter, and **more accessible** to everyone, leveraging technology to manage and distribute blood resources seamlessly.
+            </p>
+        </div>
+    </section>
+    
+    <section class="what-we-do-section">
+        <h2 class="main-heading">What We Do Best</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3><i class="icon">🔗</i> Efficient Management</h3>
+                <p>Organize and manage blood donations and donor profiles effortlessly with our streamlined digital system.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="icon">📈</i> Real-Time Monitoring</h3>
+                <p>Monitor blood stock levels in real-time for all types, ensuring quick inventory awareness.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="icon">🚨</i> Emergency Support</h3>
+                <p>Provide hospitals with immediate emergency alerts and rapid blood requests fulfillment.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="icon">📍</i> Rapid Connection</h3>
+                <p>Connect donors with the nearest donation centers rapidly and safely based on current needs.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>➤ Our Vision</h2>
-    <p>
-        A world where no patient suffers due to lack of blood. We aim to make blood donation 
-        faster, smarter, and more accessible to everyone.
-    </p>
-
-    <h2>➤ What We Do</h2>
-    <ul>
-        <li>Organize and manage blood donations effortlessly.</li>
-        <li>Monitor blood stock levels in real-time for all types.</li>
-        <li>Support hospitals with emergency alerts.</li>
-        <li>Connect donors with donation centers rapidly and safely.</li>
-    </ul>
-
-    <h2>➤ Our Team</h2>
-    <div class="team">
-        <div class="member">
-            <img src="Image/team1.png">
-            <h3>Dr. Yacine</h3>
-            <p>Medical Supervisor</p>
+    <section class="team-why-us-section">
+        
+        <div class="why-us-content">
+            <h2 class="main-heading">Why Choose Us?</h2>
+            <ul class="why-us-list">
+                <li><i class="icon">✅</i> **Fast and Reliable:** Superior donor management and logistics.</li>
+                <li><i class="icon">✅</i> **Transparent Stock:** Real-time blood stock monitoring, built-in trust.</li>
+                <li><i class="icon">✅</i> **Patient-Focused:** Built with care for patients, hospitals, and the community.</li>
+                <li><i class="icon">✅</i> **Secure Platform:** Ensuring the highest security for sensitive data.</li>
+            </ul>
+        </div>
+        
+        <div class="contact-info">
+            <h2 class="main-heading">Contact Our Team</h2>
+            <div class="contact-details">
+                <p>
+                    <i class="icon">📧</i> **Email:** <a href="mailto:support@donors.dz">support@donors.dz</a>
+                </p>
+                <p>
+                    <i class="icon">📱</i> **Phone:** +213 555 123 456
+                </p>
+                <p>
+                    <i class="icon">🌍</i> **Location:** Mostaganem, Algeria
+                </p>
+            </div>
         </div>
 
-        <div class="member">
-            <img src="Image/team2.png">
-            <h3>Sarah</h3>
-            <p>Donor Coordinator</p>
-        </div>
+    </section>
 
-        <div class="member">
-            <img src="Image/team3.png">
-            <h3>Omar</h3>
-            <p>Technical Manager</p>
-        </div>
-    </div>
-
-    <h2>➤ Why Choose Us?</h2>
-    <div class="features">
-        <div>✔ Fast and reliable donor management</div>
-        <div>✔ Real-time blood stock monitoring</div>
-        <div>✔ Built with care for patients and hospitals</div>
-    </div>
-
-    <h2>➤ Contact Us</h2>
-    <p>Email: support@donors.dz</p>
-    <p>Phone: +213 555 123 456</p>
-    <p>Location: Mostaganem, Algeria</p>
-
-</section>
-
-</body>
+</div> </body>
 </html>
