@@ -18,33 +18,35 @@ while ($row = $result->fetch_assoc()) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Blood Stock</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/agent_pages.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+
 <body>
 
-<div class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png">
-            <span>Donors</span>
-        </div>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png">
+                <span>Donors</span>
+            </div>
 
-        <div class="menu">
-            <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">About</a>
-            <a href="logout.php" class="nav-login">Logout</a>
+            <div class="menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn">About</a>
+                <a href="logout.php" class="nav-login">Logout</a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="dashboard-container">
+    <div class="dashboard-container">
 
-    <nav class="sidebar">
+        <nav class="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -89,7 +91,7 @@ while ($row = $result->fetch_assoc()) {
 
                         <!-- Blood Stock - Using stock.png -->
                         <li class="nav-link">
-                            <a href="stock.html">
+                            <a href="stock.php" class="active"> <!-- Fixed Link -->
                                 <img src="Image/stock.png" class="icon" alt="Blood Stock Icon">
                                 <span class="text nav-text">Blood Stock</span>
                             </a>
@@ -125,58 +127,60 @@ while ($row = $result->fetch_assoc()) {
             </div>
         </nav>
 
-    <div class="content">
-        
-        <h1>Available Blood Donors</h1>
+        <div class="content">
 
-        <div class="blood-grid">
+            <h1 class="gradient-text">Available Blood Donors</h1>
 
-    <div class="blood-card">
-        <span class="blood-type">🩸 A+</span>
-        <span class="blood-count">(<?= $blood_stock['A+'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 A−</span>
-                <span class="blood-count">(<?= $blood_stock['A-'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 B+</span>
-                <span class="blood-count">(<?= $blood_stock['B+'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 B−</span>
-                <span class="blood-count">(<?= $blood_stock['B-'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 O+</span>
-                <span class="blood-count">(<?= $blood_stock['O+'] ?? 0 ?>)</span>
-        
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 O−</span>
-                <span class="blood-count">(<?= $blood_stock['O-'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 AB+</span>
-                <span class="blood-count">(<?= $blood_stock['AB+'] ?? 0 ?>)</span>
-            </div>
-        
-            <div class="blood-card">
-                <span class="blood-type">🩸 AB−</span>
-                <span class="blood-count">(<?= $blood_stock['AB-'] ?? 0 ?>)</span>
-            </div></div>
+            <div class="blood-grid">
 
+                <div class="blood-card">
+                    <span class="blood-type">🩸 A+</span>
+                    <span class="blood-count">(<?= $blood_stock['A+'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 A−</span>
+                    <span class="blood-count">(<?= $blood_stock['A-'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 B+</span>
+                    <span class="blood-count">(<?= $blood_stock['B+'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 B−</span>
+                    <span class="blood-count">(<?= $blood_stock['B-'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 O+</span>
+                    <span class="blood-count">(<?= $blood_stock['O+'] ?? 0 ?>)</span>
+
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 O−</span>
+                    <span class="blood-count">(<?= $blood_stock['O-'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 AB+</span>
+                    <span class="blood-count">(<?= $blood_stock['AB+'] ?? 0 ?>)</span>
+                </div>
+
+                <div class="blood-card">
+                    <span class="blood-type">🩸 AB−</span>
+                    <span class="blood-count">(<?= $blood_stock['AB-'] ?? 0 ?>)</span>
+                </div>
+            </div>
+
+
+        </div>
 
     </div>
-
-</div>
-<!-- JavaScript for Dark Mode (Linked externally) -->
+    <!-- JavaScript for Dark Mode (Linked externally) -->
     <script src="script.js"></script>
 </body>
+
 </html>

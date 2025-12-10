@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Manage Diseases</title>
@@ -10,97 +11,104 @@
 
 <body>
 
-<!-- NAVBAR (same as admin) -->
-<div class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png">
-            <span>Donors</span>
-        </div>
-        <div class="menu">
-            <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">About</a>
-            <a href="logout.php" class="nav-login">Logout</a>
+    <!-- NAVBAR (same as admin) -->
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png">
+                <span>Donors</span>
+            </div>
+            <div class="menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn">About</a>
+                <a href="logout.php" class="nav-login">Logout</a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="dashboard-container">
+    <div class="dashboard-container">
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-        <header>
-            <div class="image-text">
-                <span class="image"><img src="Image/user1.png"></span>
-                <div class="text logo-text">
-                    <span class="name">Admin</span>
-                    <span class="profession">Control Panel</span>
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <header>
+                <div class="image-text">
+                    <span class="image"><img src="Image/user1.png"></span>
+                    <div class="text logo-text">
+                        <span class="name">Admin</span>
+                        <span class="profession">Control Panel</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="menu-bar">
+                <ul class="menu-links">
+                    <li class="nav-link"><a href="dashboard_admin.php"><img src="Image/home.png" class="icon"><span
+                                class="text nav-text">Dashboard</span></a></li>
+                    <li class="nav-link"><a href="accounts_admin.html"><img src="Image/add-user.png" class="icon"><span
+                                class="text nav-text">Accounts</span></a></li>
+                    <li class="nav-link"><a href="diseases_admin.html" class="active"><img src="Image/virus.png"
+                                class="icon"><span class="text nav-text">Diseases</span></a></li>
+                    <li class="nav-link"><a href="admin_alerts.html"><img src="Image/danger.png" class="icon"><span
+                                class="text nav-text">System Alerts</span></a></li>
+                </ul>
+
+                <!-- DARK MODE -->
+                <div class="bottom-content">
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <img src="Image/dark.png" class="icon moon">
+                            <img src="Image/light.png" class="icon sun">
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+                        <div class="toggle-switch"><span class="switch"></span></div>
+                    </li>
                 </div>
             </div>
-        </header>
+        </nav>
 
-        <div class="menu-bar">
-            <ul class="menu-links">
-                <li class="nav-link"><a href="dashboard_admin.php"><img src="Image/home.png" class="icon"><span class="text nav-text">Dashboard</span></a></li>
-                <li class="nav-link"><a href="accounts_admin.html"><img src="Image/add-user.png" class="icon"><span class="text nav-text">Accounts</span></a></li>
-                <li class="nav-link"><a href="diseases_admin.html" class="active"><img src="Image/virus.png" class="icon"><span class="text nav-text">Diseases</span></a></li>
-                <li class="nav-link"><a href="admin_alerts.html"><img src="Image/danger.png" class="icon"><span class="text nav-text">System Alerts</span></a></li>
-            </ul>
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 class="gradient-text">Manage Diseases</h1>
 
-            <!-- DARK MODE -->
-            <div class="bottom-content">
-                <li class="mode">
-                    <div class="sun-moon">
-                        <img src="Image/dark.png" class="icon moon">
-                        <img src="Image/light.png" class="icon sun">
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-                    <div class="toggle-switch"><span class="switch"></span></div>
-                </li>
+            <!-- Add Disease -->
+            <div class="form-card">
+                <h3>Add Disease</h3>
+                <form>
+                    <label>Disease Name</label>
+                    <input type="text">
+
+                    <label>Description</label>
+                    <input type="text">
+
+                    <button class="submit-btn">Add Disease</button>
+                </form>
             </div>
+
+            <!-- Table -->
+            <div class="table-card">
+                <h3>Recorded Diseases</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hepatitis B</td>
+                            <td>Viral liver infection</td>
+                            <td>Edit | Delete</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-    </nav>
-
-    <!-- CONTENT -->
-    <div class="content">
-        <h1>Manage Diseases</h1>
-
-        <!-- Add Disease -->
-        <div class="form-card">
-            <h3>Add Disease</h3>
-            <form>
-                <label>Disease Name</label>
-                <input type="text">
-
-                <label>Description</label>
-                <input type="text">
-
-                <button class="submit-btn">Add Disease</button>
-            </form>
-        </div>
-
-        <!-- Table -->
-        <div class="table-card">
-            <h3>Recorded Diseases</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th><th>Description</th><th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Hepatitis B</td>
-                    <td>Viral liver infection</td>
-                    <td>Edit | Delete</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

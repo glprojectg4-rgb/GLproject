@@ -1,233 +1,60 @@
-@font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
+/* ======================================= */
+/* 👑 MANAGER DASHBOARD SPECIFIC STYLES */
+/* (Linked after dashboard_base.css to ensure overrides work) */
+/* ======================================= */
+
+/* --- SMALL METRIC CARD COLOR OVERRIDES --- */
+
+/* Total Donors Card: Primary Accent Color */
+.card-donors {
+    border-left-color: var(--primary-color); 
+}
+/* Dark mode hover background */
+body.dark .card-donors:hover {
+    background: var(--primary-color-light); 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* CTS Centers Card: Manager Blue Color */
+.card-locations {
+    border-left-color: var(--manager-color); 
+}
+/* Dark mode hover background */
+body.dark .card-locations:hover {
+    background: #2a3a5a; 
 }
 
-:root {
-    --body-color: #E4E9F7;
-    --sidebar-color: #FFF;
-    --primary-color: #17173A;
-    --primary-color-light: #F6F5FF;
-    --toggle-color: #DDD;
-    --text-color: #707070;
-
-    --tran-03: all 0.2s ease;
-    --tran-04: all 0.3s ease;
-    --tran-05: all 0.3s ease;
+/* Pending Messages Card: Warning Orange Color */
+.card-messages {
+    border-left-color: var(--warning-color); 
+}
+/* Dark mode hover background */
+body.dark .card-messages:hover {
+    background: #3a3025;
 }
 
-body {
-    min-height: 100vh;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
+
+/* --- QUICK ACTIONS COLOR OVERRIDES (MANAGER) --- */
+
+/* Hover for Manage Locations button (using Manager Blue) */
+a[href="locations.html"].big-btn:hover { 
+    background: #e6f3ff;
+}
+body.dark a[href="locations.html"].big-btn:hover { 
+    background: #2a3a5a;
 }
 
-/* ============================ */
-/* NAVBAR */
-/* ============================ */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 50;
-    background: #17173A;
-    padding: 10px 0;
-    height: 63px;
+/* Hover for Send Campaigns button (using Warning Orange) */
+a[href="communication.html"].big-btn:hover { 
+    background: #fff3e0;
+}
+body.dark a[href="communication.html"].big-btn:hover { 
+    background: #3a3025;
 }
 
-.nav-container {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Hover for Generate Reports button (using Blood Red) */
+a[href="reports.html"].big-btn:hover { 
+    background: #ffebeb;
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo span {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.menu {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.nav-btn, .nav-login {
-    color: white;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.25s;
-}
-
-.nav-btn {
-    background: rgba(255,255,255,0.08);
-}
-
-.nav-btn:hover {
-    background: rgba(255,255,255,0.25);
-}
-
-.nav-login {
-    background: #d60000;
-}
-.nav-login:hover {
-    background: #a00000;
-}
-
-/* ============================ */
-/* SIDEBAR */
-/* ============================ */
-
-.sidebar {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    height: calc(100% - 64px);
-    width: 190px;
-    padding: 10px;
-    background: var(--sidebar-color);
-    transition: var(--tran-05);
-    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-}
-
-.sidebar header .image-text {
-    display: flex;
-    align-items: center;
-}
-
-.sidebar header .image img {
-    width: 40px;
-}
-
-.sidebar header .logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar header .name {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.sidebar header .profession {
-    font-size: 16px;
-}
-
-.sidebar .menu-links {
-    margin-top: 20px;
-}
-
-.sidebar li {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    height: 56px;
-}
-
-.sidebar a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: var(--tran-03);
-    color: var(--text-color);
-}
-
-.sidebar a:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-.sidebar a:hover .icon {
-    filter: brightness(0) invert(1);
-}
-
-.sidebar a.active {
-    background: var(--primary-color);
-    color: white;
-}
-
-.sidebar .icon {
-    width: 24px;
-    margin-right: 10px;
-}
-
-/* ============================ */
-/* CONTENT AREA */
-/* ============================ */
-
-.dashboard-container {
-    padding-top: 70px;
-}
-
-.content {
-    margin-left: 210px;
-    padding: 20px;
-}
-
-.content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #5d40aa, #6c658b);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* CARDS */
-.card {
-    background: #b5ced3;
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 12px;
-    border-left: 6px solid #17173A;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* FORMS + TABLES SAME AS AGENT */
-.form-card, .table-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background: #17173A;
-    color: white;
-}
-
-th, td {
-    padding: 14px;
-    border-bottom: 1px solid #ddd;
+body.dark a[href="reports.html"].big-btn:hover { 
+    background: #3a2525;
 }

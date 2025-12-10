@@ -6,6 +6,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
     exit();
 }
 
+// Placeholder variables for the dynamic content
+// Replace these with actual database fetches in a live environment
+$total_donations_today = 42;
+$critical_blood_types = "O-, AB-";
+$pending_alerts_count = 7;
+
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +21,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
     <meta charset="UTF-8">
     <title>Agent Dashboard</title>
 
-    <!-- CSS Link -->
     <link rel="stylesheet" href="css/dashboard_agent.css">
 
-    <!-- NOTE: The Boxicons CDN is REMOVED as we are using PNG images now -->
-</head>
+    </head>
 
 <body>
 
@@ -38,19 +42,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
         </div>
     </div>
 
-    <!-- =========================
-         LAYOUT CONTAINER
-    ========================== -->
     <div class="dashboard-container">
 
-        <!-- =========================
-             SIDEBAR 
-        ========================== -->
         <nav class="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <!-- Placeholder User Image -->
                         <img src="Image/employee.png" alt="User">
                     </span>
 
@@ -65,7 +62,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                 <div class="menu">
                     <ul class="menu-links">
 
-                        <!-- Dashboard - Using home.png -->
                         <li class="nav-link">
                             <a href="dashboard_agent.php">
                                 <img src="Image/home.png" class="icon" alt="Dashboard Icon">
@@ -73,7 +69,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                             </a>
                         </li>
 
-                        <!-- Manage Donations - Using donation.png -->
                         <li class="nav-link">
                             <a href="donations.html">
                                 <img src="Image/donations.png" class="icon" alt="Donations Icon">
@@ -81,7 +76,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                             </a>
                         </li>
 
-                        <!-- Universal Donors - Using univ.png -->
                         <li class="nav-link">
                             <a href="universal_donors.html">
                                 <img src="Image/univ.png" class="icon" alt="Universal Donors Icon">
@@ -89,7 +83,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                             </a>
                         </li>
 
-                        <!-- Blood Stock - Using stock.png -->
                         <li class="nav-link">
                             <a href="stock.php">
                                 <img src="Image/stock.png" class="icon" alt="Blood Stock Icon">
@@ -97,7 +90,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                             </a>
                         </li>
 
-                        <!-- Send Alert - Using alert.png -->
                         <li class="nav-link">
                             <a href="alert.html">
                                 <img src="Image/alert.png" class="icon" alt="Alert Icon">
@@ -108,13 +100,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                     </ul>
                 </div>
 
-                <!-- Dark Mode Toggle (Kept Boxicons for sun/moon appearance) -->
                 <div class="bottom-content">
                     <li class="mode">
                         <div class="sun-moon">
-                            <!-- Using dark.png for the moon icon -->
                             <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
-                            <!-- Assuming light.png for the sun icon -->
                             <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
                         </div>
                         <span class="mode-text text">Dark mode</span>
@@ -127,31 +116,57 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
             </div>
         </nav>
 
-        <!-- =========================
-             MAIN CONTENT
-        ========================== -->
         <div class="content">
             <h1>Welcome Agent</h1>
 
-            <div class="card">
-                <h3>Total Donations Today</h3>
-                <p>Placeholder data</p>
+            <div class="quick-actions-grid">
+
+                <a href="donations.html" class="big-btn">
+                    <img src="Image/donations.png" class="big-btn-icon" alt="Donations Icon">
+                    <h3>Manage Donations</h3>
+                    <p>Register new donations and update records.</p>
+                </a>
+
+                <a href="universal_donors.html" class="big-btn">
+                    <img src="Image/univ.png" class="big-btn-icon" alt="Universal Donors Icon">
+                    <h3>Universal Donors</h3>
+                    <p>List, verify, and track O- donors.</p>
+                </a>
+
+                <a href="stock.php" class="big-btn">
+                    <img src="Image/stock.png" class="big-btn-icon" alt="Blood Stock Icon">
+                    <h3>Blood Stock</h3>
+                    <p>Monitor blood levels by blood type.</p>
+                </a>
+
+                <a href="alert.html" class="big-btn">
+                    <img src="Image/alert.png" class="big-btn-icon" alt="Alert Icon">
+                    <h3>Send Alert</h3>
+                    <p>Immediate emergency notifications to donors.</p>
+                </a>
+
             </div>
 
-            <div class="card">
-                <h3>Critical Blood Stock</h3>
-                <p>Placeholder data</p>
-            </div>
+            <div class="small-cards-row">
+                <div class="small-card">
+                    <h4>Today’s Donations</h4>
+                    <p><?php echo $total_donations_today; ?> Units</p>
+                </div>
 
-            <div class="card">
-                <h3>Pending Alerts</h3>
-                <p>Placeholder data</p>
+                <div class="small-card">
+                    <h4>Critical Blood Types</h4>
+                    <p><?php echo $critical_blood_types; ?></p>
+                </div>
+
+                <div class="small-card">
+                    <h4>Pending Alerts</h4>
+                    <p><?php echo $pending_alerts_count; ?> Requests</p>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <!-- JavaScript for Dark Mode (Linked externally) -->
     <script src="script.js"></script>
 
 </body>

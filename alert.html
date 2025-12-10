@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Send Alert</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/agent_pages.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 
-<div class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png">
-            <span>Donors</span>
-        </div>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png">
+                <span>Donors</span>
+            </div>
 
-        <div class="menu">
-            <a href="index.html" class="nav-btn">Home</a>
-            <a href="about.html" class="nav-btn">About</a>
-            <a href="logout.php" class="nav-login">Logout</a>
+            <div class="menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn">About</a>
+                <a href="logout.php" class="nav-login">Logout</a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="dashboard-container">
+    <div class="dashboard-container">
 
-    <nav class="sidebar">
+        <nav class="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -44,7 +45,7 @@
             <div class="menu-bar">
                 <div class="menu">
                     <ul class="menu-links">
-                        
+
                         <!-- Dashboard - Using home.png -->
                         <li class="nav-link">
                             <a href="dashboard_agent.php">
@@ -79,7 +80,7 @@
 
                         <!-- Send Alert - Using alert.png -->
                         <li class="nav-link">
-                            <a href="alert.html">
+                            <a href="alert.html" class="active">
                                 <img src="Image/alert.png" class="icon" alt="Alert Icon">
                                 <span class="text nav-text">Send Alert</span>
                             </a>
@@ -105,31 +106,32 @@
                     </li>
                 </div>
             </div>
-        </nav> 
+        </nav>
 
-    <div class="content">
+        <div class="content">
 
-        <h1>Send Alert</h1>
+            <h1 class="gradient-text">Send Alert</h1>
 
-        <div class="form-card">
-            <form>
-                <label>Donor Name</label>
-                <input type="text" placeholder="Enter full name">
+            <div class="form-card">
+                <form>
+                    <label>Donor Name</label>
+                    <input type="text" placeholder="Enter full name">
 
-                <label>Disease Detected</label>
-                <input type="text" placeholder="Enter disease">
+                    <label>Disease Detected</label>
+                    <input type="text" placeholder="Enter disease">
 
-                <label>Appointment Date</label>
-                <input type="date">
+                    <label>Appointment Date</label>
+                    <input type="date">
 
-                <button class="submit-btn">Send Alert</button>
-            </form>
+                    <button class="submit-btn">Send Alert</button>
+                </form>
+            </div>
+
         </div>
 
     </div>
-
-</div>
-<!-- JavaScript for Dark Mode (Linked externally) -->
+    <!-- JavaScript for Dark Mode (Linked externally) -->
     <script src="script.js"></script>
 </body>
+
 </html>

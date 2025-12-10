@@ -1,53 +1,79 @@
-/* FORM CARD */
+/* FORM CARD - (Styles remain the same) */
 .form-card {
-    background: #b5ced3;
+    background: var(--sidebar-color);
     padding: 30px;
     margin-top: 10px;
     border-radius: 12px;
-    border-left: 8px solid #17173A;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+    border-left: 8px solid var(--primary-color);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    color: var(--dark-accent-color);
+    transition: var(--tran-05);
 }
 
 .form-card form label {
     font-weight: 600;
-    margin-top: 12px;
+    margin-top: 15px;
     display: block;
+    font-size: 0.95rem;
+    color: var(--dark-accent-color);
 }
 
 .form-card input,
 .form-card select {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid #aaa;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: var(--body-color);
+    color: #333;
+    transition: var(--tran-03);
+}
+
+.form-card input:focus,
+.form-card select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(105, 92, 254, 0.4);
 }
 
 .submit-btn {
-    background: #17173A;
+    background: var(--dark-accent-color);
     color: white;
     padding: 12px 25px;
     border-radius: 8px;
     border: none;
-    margin-top: 15px;
+    margin-top: 25px;
     cursor: pointer;
     font-size: 17px;
+    font-weight: 600;
     transition: 0.25s;
 }
 
 .submit-btn:hover {
-    background: #a00000;
+    background: var(--primary-color);
 }
 
 
-/* TABLE CARD */
+/* TABLE CARD - (Styles remain the same) */
 .table-card {
-    background: white;
-    padding: 25px;
+    background: var(--sidebar-color);
+    padding: 0;
     margin-top: 20px;
     border-radius: 12px;
-    border-left: 6px solid #17173A;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: var(--tran-05);
+}
+
+.table-card h3 {
+    padding: 20px;
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--dark-accent-color);
+    border-bottom: 1px solid #eee;
+    background: var(--sidebar-color);
 }
 
 table {
@@ -56,25 +82,38 @@ table {
 }
 
 thead tr {
-    background: #17173A;
+    background: var(--dark-accent-color);
     color: white;
     text-align: left;
 }
 
-th, td {
+th,
+td {
     padding: 14px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    color: var(--text-color);
 }
 
+th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+tbody tr:hover {
+    background: var(--primary-color-light);
+    transition: background 0.2s;
+}
 
 /* Stock status colors */
 .ok {
-    color: green;
+    color: var(--success-color);
     font-weight: bold;
 }
 
 .low {
-    color: red;
+    color: var(--blood-red);
     font-weight: bold;
 }
 
@@ -83,13 +122,14 @@ th, td {
     margin-bottom: 15px;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-color); /* Auto theme color */
+    color: var(--dark-accent-color);
     transition: 0.3s;
 }
 
-/* BLOOD STOCK GRID */
+/* BLOOD STOCK GRID - MODIFIED */
 .blood-grid {
     display: grid;
+    /* CHANGE: Force 4 columns in one row for better balance */
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 30px;
@@ -97,34 +137,37 @@ th, td {
 
 /* CARD DESIGN */
 .blood-card {
-    background: #0d0b26;
+    background: var(--dark-accent-color);
     border-radius: 15px;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
     position: relative;
     color: #fff;
     font-family: Poppins, sans-serif;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
+    border-left: 5px solid var(--blood-red);
 }
 
 .blood-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* BLOOD TYPE */
 .blood-type {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #ff3b3b;
+    color: var(--blood-red);
     display: block;
 }
 
 /* COUNT UNDER BLOOD TYPE */
 .blood-count {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 8px;
-    color: #ffffffcc;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 /* BLOOD DROP DECORATION (BOTTOM RIGHT) */
@@ -138,4 +181,54 @@ th, td {
     right: 10px;
     width: 60px;
     height: 60px;
+}
+
+/* DARK MODE STYLES (AGENT PAGES OVERRIDES) - (Styles remain the same) */
+body.dark .form-card {
+    background: var(--sidebar-color);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .form-card form label {
+    color: var(--dark-accent-color);
+}
+
+body.dark .form-card input,
+body.dark .form-card select {
+    background: var(--body-color);
+    border: 1px solid #444;
+    color: #fff;
+}
+
+body.dark .submit-btn {
+    background: var(--primary-color);
+}
+
+body.dark .submit-btn:hover {
+    background: var(--blood-red);
+}
+
+body.dark .table-card {
+    background: var(--sidebar-color);
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark thead tr {
+    background: var(--body-color);
+}
+
+body.dark th,
+body.dark td {
+    border-bottom: 1px solid #333;
+    color: var(--text-color);
+}
+
+body.dark .section-title {
+    color: var(--dark-accent-color);
+}
+
+body.dark .blood-card {
+    background: #1f1f2c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }

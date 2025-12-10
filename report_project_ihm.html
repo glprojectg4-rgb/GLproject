@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HCI Project Report - Blood Donation Management System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #b70b0b;
+            --text-color: #333;
+            --bg-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e0e0e0;
+            /* Grey background for screen view */
+            font-family: 'Merriweather', serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 25mm;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Print styles to make it look like a PDF */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                break-after: page;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 24pt;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18pt;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 14pt;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 10px;
+            font-size: 11pt;
+        }
+
+        ul {
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 11pt;
+        }
+
+        /* Cover Page styling */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 250mm;
+            /* Approximate content height */
+        }
+
+        .cover-logo {
+            width: 100px;
+            margin-bottom: 30px;
+        }
+
+        .university {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+        }
+
+        .report-title {
+            font-size: 32pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .course-name {
+            font-size: 18pt;
+            color: #666;
+            margin-bottom: 80px;
+        }
+
+        .student-info {
+            font-size: 14pt;
+            margin-top: auto;
+            align-self: flex-start;
+            text-align: left;
+            width: 100%;
+        }
+
+        .date {
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        /* Table of Contents */
+        .toc {
+            margin-top: 40px;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Images */
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            margin: 20px 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Banner for instructions */
+        .print-banner {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .print-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="print-banner no-print">
+        This is your generated report. To create the PDF:
+        <button class="print-btn" onclick="window.print()">Click Here to Print / Save as PDF</button>
+    </div>
+
+    <!-- COVER PAGE -->
+    <div class="page">
+        <div class="cover-page">
+            <div class="university">University of Blood Management</div>
+
+            <img src="Image/drop-of-blood-emoji.png" alt="Logo" class="cover-logo">
+
+            <div class="report-title">Blood Donation<br>Management System</div>
+            <div class="course-name">Human-Computer Interaction (HCI) Project</div>
+
+            <div class="student-info">
+                <p><strong>Prepared by:</strong> [Student Name]</p>
+                <p><strong>Date:</strong> December 12, 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT START -->
+    <div class="page">
+        <h2>1. Introduction</h2>
+        <p>The "Blood Donation Management System" is a web-based application designed to facilitate the complex process
+            of managing blood donations, stock levels, and donor communications. In the context of healthcare,
+            efficiency and clarity are paramount. This project aims to digitize manual processes, reducing errors and
+            saving time for medical staff.</p>
+        <p>The objective of this Human-Computer Interaction (HCI) project is to design an interface that is not only
+            functional but also ergonomic, intuitive, and accessible. The system caters to three distinct user roles:
+            Administrators, Managers, and Agents, each with specific needs and workflows.</p>
+
+        <h2>2. Analysis</h2>
+        <h3>2.1 Users and Tasks</h3>
+        <p>We identified three primary user categories:</p>
+        <ul>
+            <li><strong>Agents</strong>: Front-line staff responsible for registering donations, checking stock, and
+                contacting donors. Their work is fast-paced, requiring quick data entry and clear visual feedback.</li>
+            <li><strong>Managers</strong>: Operational supervisors who oversee donor lists, handle communications, and
+                manage staff accounts. They require overview dashboards and easy access to reports.</li>
+            <li><strong>Administrators</strong>: System maintainers responsible for global settings, disease lists, and
+                system alerts. Their interface focuses on control and configuration.</li>
+        </ul>
+
+        <h3>2.2 Context of Use</h3>
+        <p>The system is used in a clinical or office environment, likely on desktop computers. Users may be
+            multitasking, so the interface must minimize cognitive load and prevent errors, especially when handling
+            sensitive donor data.</p>
+    </div>
+
+    <div class="page">
+        <h2>3. Architecture</h2>
+        <h3>3.1 Chosen Model: MVC (Model-View-Controller)</h3>
+        <p>For the architectural design of this application, we selected the <strong>MVC
+                (Model-View-Controller)</strong> pattern. This choice is justified by the need to separate the user
+            interface (View) from the business logic (Controller) and the data structure (Model).</p>
+
+        <ul>
+            <li><strong>Model</strong>: Represents the database tables (Users, Donors, Stocks). It handles data
+                integrity.</li>
+            <li><strong>View</strong>: The HTML/CSS pages presented to the user. In our project, we focused heavily on
+                this layer to ensure a premium User Experience (UX).</li>
+            <li><strong>Controller</strong>: The PHP scripts that process user inputs (logins, form submissions) and
+                update the Model or View accordingly.</li>
+        </ul>
+
+        <p>This separation allows for easier maintenance and ensures that UI changes (like the "pretty touches"
+            requests) do not break the underlying business logic.</p>
+
+        <h2>4. Design Concepts</h2>
+        <h3>4.1 Ergonomics and Aesthetics</h3>
+        <p>We prioritized a "Premium" aesthetic to foster trust and engagement. Key design elements include:</p>
+        <ul>
+            <li><strong>Color Psychology</strong>: We used a palette dominated by Red (#b70b0b) to symbolize blood and
+                urgency, complemented by dark blues and whites for professional contrast.</li>
+            <li><strong>Fitts's Law</strong>: Action buttons (e.g., "Manage Donations", "Send Alert") are large and
+                placed in easily accessible grid layouts to reduce acquisition time.</li>
+            <li><strong>Consistency</strong>: All dashboards (Agent, Manager, Admin) share a common layout structure
+                (Sidebar Navigation, Top Header, Grid Content), reducing the learning curve.</li>
+        </ul>
+
+        <h3>4.2 Visual Hierarchy</h3>
+        <p>Using the Gestalt principle of proximity, related items are grouped in cards (e.g., "Quick Actions").
+            Gradient headers draw attention to page titles, and distinct styles separate interactive elements from
+            static data.</p>
+    </div>
+
+    <div class="page">
+        <h2>5. Realization</h2>
+        <p>This section highlights the key interfaces developed during the project.</p>
+
+        <h3>5.1 The Dashboards</h3>
+        <p>The dashboard is the central hub. We implemented a responsive grid layout that adapts to screen size.
+            Features include:</p>
+        <ul>
+            <li><strong>Quick Actions Grid</strong>: Immediate access to high-frequency tasks.</li>
+            <li><strong>Live Statistics</strong>: "Small Cards" displaying real-time data like total donors or stock
+                levels.</li>
+        </ul>
+
+        <h3>5.2 Data Management (Tables)</h3>
+        <p>Tables for "Universal Donors" and "Affiliated Donors" were designed for readability. We implemented styled
+            headers with clear separation to prevent the "cramped" look, ensuring data is easy to scan. Sidebar
+            navigation automatically highlights the active page, providing constant orientation feedback to the user.
+        </p>
+
+        <h3>5.3 Security & Recovery</h3>
+        <p>We implemented secure authentication flows, including a redesigned "Reset Password" page. This page features
+            a full-screen immersive background with a glass-morphism card effect, ensuring that even utility pages
+            maintain the high aesthetic standard of the application.</p>
+
+        <h2>6. Conclusion</h2>
+        <p>The Blood Donation Management System project successfully demonstrates the application of HCI principles to a
+            critical healthcare tool. By rigorously separating the architecture (MVC) and focusing on ergonomic design
+            (Fitts's Law, Consistency), we created an interface that is both beautiful and highly functional.</p>
+        <p>Future improvements could include accessibility features (WCAG compliance) and a mobile-specific version for
+            field agents.</p>
+    </div>
+
+</body>
+
+</html>
