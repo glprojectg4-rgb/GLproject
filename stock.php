@@ -23,6 +23,7 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <title>Blood Stock</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/agent_pages.css">
 
 </head>
@@ -51,7 +52,7 @@ while ($row = $result->fetch_assoc()) {
                 <div class="image-text">
                     <span class="image">
                         <!-- Placeholder User Image -->
-                        <img src="Image/employee.png" alt="User">
+                        <img src="Image/user2.png" alt="User">
                     </span>
 
                     <div class="text logo-text">

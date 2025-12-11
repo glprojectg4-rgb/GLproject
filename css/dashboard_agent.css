@@ -45,73 +45,7 @@ body {
     transition: var(--tran-05);
 }
 
-/* ======================================= */
-/* NAVBAR (FIXED COLOR) */
-/* ======================================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 50;
-    background: #17173A;
-    backdrop-filter: blur(8px);
-    padding: 10px 0;
-    height: 63px;
-}
-
-.nav-container {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo span {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.menu {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.nav-btn {
-    color: white;
-    padding: 8px 18px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.08);
-    transition: 0.25s;
-}
-
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.nav-login {
-    background: var(--blood-red);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.25s;
-}
-
-.nav-login:hover {
-    background: #a00000;
-}
+/* NAVBAR STYLES MOVED TO navbar.css */
 
 /* ======================================= */
 /* SIDEBAR (NAV) */

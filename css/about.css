@@ -11,17 +11,17 @@
     padding: 0;
     box-sizing: border-box;
     /* Assuming you are linking a font or using Poppins */
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
     /* Updated colors to match the new primary/accent definitions */
-    --primary-dark: #17173A; 
-    --accent-red: #d60000;   
-    --light-bg: #f5f7fa;     
+    --primary-dark: #17173A;
+    --accent-red: #d60000;
+    --light-bg: #f5f7fa;
     --text-color: #693838;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
-    
+
     --tran-03: all 0.2s ease;
     --tran-04: all 0.3s ease;
     --tran-05: all 0.3s ease;
@@ -33,82 +33,17 @@ body {
     line-height: 1.6;
 }
 
-/* NAVBAR (STRICTLY MATCHING THE PROVIDED DASHBOARD CSS) */
-/* ============================ */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 50;
-    background: #17173A;
-    padding: 10px 0;
-    height: 63px;
-}
-
-.nav-container {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Adjusted from flex-start to match new snippet */
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo span {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.menu {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.nav-btn, .nav-login {
-    color: white;
-    padding: 10px 22px; /* Uniform padding */
-    border-radius: 6px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.25s;
-}
-
-.nav-btn {
-    background: rgba(255,255,255,0.08);
-}
-
-.nav-btn:hover {
-    background: rgba(255,255,255,0.25);
-}
-
-.nav-btn.active { /* Style for the active 'About' link */
-    background: rgba(255,255,255,0.25);
-}
-
-.nav-login {
-    background: #d60000;
-}
-
-.nav-login:hover {
-    background: #a00000;
-}
-/* END OF NEW NAVBAR CSS */
+/* NAVBAR STYLES MOVED TO navbar.css */
 
 
 /* HERO SECTION (MODERNIZED) */
 .hero {
     position: relative;
     width: 100%;
-    height: 50vh; 
-    margin-top: 63px; /* Adjusted margin to match new navbar height */
-    overflow: hidden; 
+    height: 50vh;
+    margin-top: 63px;
+    /* Adjusted margin to match new navbar height */
+    overflow: hidden;
 }
 
 .hero-bg-container {
@@ -123,8 +58,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.3) saturate(1.2); 
-    transform: scale(1.05); 
+    filter: brightness(0.3) saturate(1.2);
+    transform: scale(1.05);
 }
 
 .hero-content {
@@ -133,7 +68,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(23, 23, 58, 0.6); 
+    background: rgba(23, 23, 58, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,7 +126,8 @@ body {
     margin-bottom: 15px;
 }
 
-p, li {
+p,
+li {
     font-size: 17px;
     color: var(--text-color);
     margin-bottom: 15px;
@@ -219,8 +155,13 @@ p, li {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.mission-card { border-top-color: var(--primary-dark); }
-.vision-card { border-top-color: var(--accent-red); }
+.mission-card {
+    border-top-color: var(--primary-dark);
+}
+
+.vision-card {
+    border-top-color: var(--accent-red);
+}
 
 /* WHAT WE DO SECTION - FEATURE GRID */
 .what-we-do-section {
@@ -267,7 +208,7 @@ p, li {
 /* WHY US & CONTACT SECTION */
 .team-why-us-section {
     display: grid;
-    grid-template-columns: 2fr 1fr; 
+    grid-template-columns: 2fr 1fr;
     gap: 50px;
     padding-top: 40px;
 }
@@ -302,7 +243,7 @@ p, li {
     background: var(--primary-dark);
     color: white;
     align-self: start;
-    margin-top: 100px; 
+    margin-top: 100px;
 }
 
 .contact-info .main-heading {
@@ -332,7 +273,7 @@ p, li {
 }
 
 .contact-details a {
-    color: #ffdada; 
+    color: #ffdada;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -344,15 +285,17 @@ p, li {
 
 /* MEDIA QUERIES for responsiveness */
 @media (max-width: 900px) {
-    .mission-vision-section, .team-why-us-section {
+
+    .mission-vision-section,
+    .team-why-us-section {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-content h1 {
         font-size: 48px;
     }
 
     .contact-info {
-        margin-top: 40px; 
+        margin-top: 40px;
     }
 }

@@ -22,6 +22,7 @@ $pending_alerts_count = 7;
     <title>Agent Dashboard</title>
 
     <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/navbar.css">
 
     </head>
 
@@ -48,7 +49,7 @@ $pending_alerts_count = 7;
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="Image/employee.png" alt="User">
+                        <img src="Image/user2.png" alt="User">
                     </span>
 
                     <div class="text logo-text">

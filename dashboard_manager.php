@@ -19,6 +19,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
     <title>Manager Dashboard</title>
 
     <link rel="stylesheet" href="css/dashboard_agent.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <!-- Manager specifics tailored to override agent defaults -->
     <link rel="stylesheet" href="css/dashboard_manager.css">
 
