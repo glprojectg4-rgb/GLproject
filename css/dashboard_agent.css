@@ -52,10 +52,10 @@ body {
 /* ======================================= */
 .sidebar {
     position: fixed;
-    top: 64px;
+    top: 62px;
     left: 0;
     height: calc(100% - 70px);
-    width: 190px;
+    width: 185px;
     padding: 10px 10px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
@@ -116,7 +116,7 @@ header .image-text .profession {
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: 6px;
+    border-radius: 18px;
     text-decoration: none;
     transition: var(--tran-03);
 }

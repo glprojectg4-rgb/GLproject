@@ -38,7 +38,7 @@
 }
 
 .submit-btn {
-    background: var(--dark-accent-color);
+    background: var(--blood-red);
     color: white;
     padding: 12px 25px;
     border-radius: 8px;
@@ -51,7 +51,7 @@
 }
 
 .submit-btn:hover {
-    background: var(--primary-color);
+    background: #b00000;
 }
 
 
