@@ -17,7 +17,7 @@
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
     --primary-color: #695CFE;
-    --primary-color: #695CFE;
+
     --toggle-color: #DDD;
     --text-color: #707070;
     --dark-accent-color: #17173A;
@@ -129,12 +129,11 @@ header .image-text .profession {
     transition: var(--tran-03);
     margin: 0 8px 0 0;
 
-    /* FIX: Ensures icons are black/dark in light mode, now aligned */
-    margin: 0 8px 0 0;
+
     filter: brightness(0);
 }
 
-/* FIX: Icons turn white on hover or active state */
+
 .sidebar li a:hover .icon,
 .sidebar li a.active .icon {
     filter: invert(1);
@@ -375,7 +374,6 @@ a[href="alert.html"].big-btn:hover {
 
 
 body.dark {
-    /* Dark Mode Color Variables */
     --body-color: #18191a;
     --sidebar-color: #242526;
     --primary-color: #5d40aa;
@@ -387,17 +385,14 @@ body.dark {
     --success-color: #00CC66;
     --warning-color: #FFB300;
     --manager-color: #3f99ff;
-    /* Dark Mode Manager Blue */
 }
 
 body.dark .sidebar .icon {
-    /* Makes icons white in dark mode */
     filter: invert(1);
 }
 
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a.active .icon {
-    /* Keeps icons white on hover */
     filter: invert(1);
 }
 
@@ -414,7 +409,6 @@ body.dark .switch::before {
     left: 20px;
 }
 
-/* Dark Mode Big Buttons */
 body.dark .big-btn {
     background: #242526;
     color: #e0e0e0;
@@ -429,7 +423,6 @@ body.dark .big-btn-icon {
     filter: invert(1) brightness(0.9);
 }
 
-/* Dark Mode Themed Button Hovers - Agent defaults */
 body.dark a[href="donations.html"].big-btn:hover {
     background: #3a3b3c;
 }
@@ -446,7 +439,6 @@ body.dark a[href="alert.html"].big-btn:hover {
     background: #3a3025;
 }
 
-/* Dark Mode Small Cards */
 body.dark .small-card {
     background: #2f3031;
     color: #ddd;
@@ -462,7 +454,6 @@ body.dark .small-card:hover {
     background: #3a3b3c;
 }
 
-/* UTILITY CLASSES */
 .gradient-text {
     font-size: 2.8rem;
     margin-bottom: 25px;

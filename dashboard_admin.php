@@ -1,5 +1,5 @@
 <?php
-// ✅Start session and check if agent is logged in
+
 session_start();
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
     header("Location: login.html");

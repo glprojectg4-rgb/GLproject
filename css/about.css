@@ -5,17 +5,17 @@
     font-style: normal;
 }
 
-/* RESET and FONT IMPORT */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Assuming you are linking a font or using Poppins */
+
     font-family: 'Poppins', sans-serif;
 }
 
 :root {
-    /* Updated colors to match the new primary/accent definitions */
+
     --primary-dark: #17173A;
     --accent-red: #d60000;
     --light-bg: #d9fafa;
@@ -33,16 +33,16 @@ body {
     line-height: 1.6;
 }
 
-/* NAVBAR STYLES MOVED TO navbar.css */
 
 
-/* HERO SECTION (MODERNIZED) */
+
+
 .hero {
     position: relative;
     width: 100%;
     height: 50vh;
     margin-top: 63px;
-    /* Adjusted margin to match new navbar height */
+    margin-top: 63px;
     overflow: hidden;
 }
 
@@ -90,11 +90,11 @@ body {
     font-weight: 400;
     max-width: 700px;
     color: white;
-    /* Fix: Override global brown text */
+
     opacity: 0.9;
 }
 
-/* MAIN CONTENT CONTAINER */
+
 .about-container {
     width: 90%;
     max-width: 1200px;
@@ -102,7 +102,7 @@ body {
     padding: 20px 0 60px 0;
 }
 
-/* TYPOGRAPHY */
+
 .main-heading {
     text-align: center;
     font-size: 40px;
@@ -136,7 +136,7 @@ li {
     margin-bottom: 15px;
 }
 
-/* MISSION & VISION SECTION - GRID LAYOUT */
+
 .mission-vision-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -166,7 +166,7 @@ li {
     border-top-color: var(--accent-red);
 }
 
-/* WHAT WE DO SECTION - FEATURE GRID */
+
 .what-we-do-section {
     background-color: #d9fafa;
     padding: 1px 0 40px 0;
@@ -208,7 +208,7 @@ li {
     margin-right: 8px;
 }
 
-/* WHY US & CONTACT SECTION */
+
 .team-why-us-section {
     padding-top: 40px;
     padding-bottom: 60px;
@@ -219,10 +219,10 @@ li {
     grid-template-columns: 2fr 1fr;
     gap: 50px;
     align-items: start;
-    /* Ensures items start at top */
+
 }
 
-/* WHY US LIST */
+
 .why-us-list {
     list-style: none;
     padding-left: 0;
@@ -245,7 +245,7 @@ li {
 }
 
 
-/* CONTACT INFO */
+
 .contact-info {
     padding: 30px;
     border-radius: 12px;
@@ -253,7 +253,7 @@ li {
     color: white;
     align-self: start;
     margin-top: 0;
-    /* Align with top of list */
+
 }
 
 .contact-info .main-heading {
@@ -293,7 +293,7 @@ li {
     text-decoration: underline;
 }
 
-/* MEDIA QUERIES for responsiveness */
+
 @media (max-width: 900px) {
 
     .mission-vision-section,
