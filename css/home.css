@@ -89,32 +89,23 @@
 
 .btn-hero {
     display: inline-block;
-    /* INCREASED SIZE */
     padding: 18px 56px;
     background: linear-gradient(135deg, var(--primary-color), #a00000);
     color: white;
-    /* INCREASED FONT */
     font-size: 20px;
     font-weight: 800;
-    /* BOLDER FONT */
     text-decoration: none;
     border-radius: 12px;
-    /* Enhanced Shadow */
     box-shadow: 0 12px 30px rgba(214, 0, 0, 0.5);
     transition: all 0.3s ease;
     letter-spacing: 1.5px;
-    /* Added slight letter-spacing */
     border: none;
-    /* Removed the subtle border for a cleaner look */
     text-transform: uppercase;
-    /* Makes text stand out */
 }
 
 .btn-hero:hover {
-    /* Increased lift and shadow on hover */
     transform: translateY(-7px);
     box-shadow: 0 20px 45px rgba(214, 0, 0, 0.8);
-    /* Stronger hover shadow */
     background: linear-gradient(135deg, #e60000, #c00000);
 }
 

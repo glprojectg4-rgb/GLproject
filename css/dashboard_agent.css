@@ -30,9 +30,6 @@
     --tran-05: all 0.3s ease;
 }
 
-/* ======================================= */
-
-
 body {
     min-height: 100vh;
     background-color: var(--body-color);
@@ -40,7 +37,7 @@ body {
 }
 
 
-/* ======================================= */
+
 .sidebar {
     position: fixed;
     top: 62px;
@@ -376,9 +373,7 @@ a[href="alert.html"].big-btn:hover {
     color: #333;
 }
 
-/* ======================================= */
-/* 🌙 DARK MODE STYLES (BASE) */
-/* ======================================= */
+
 body.dark {
     /* Dark Mode Color Variables */
     --body-color: #18191a;

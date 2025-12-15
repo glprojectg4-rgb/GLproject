@@ -10,13 +10,12 @@
     --primary-hover: #b00000;
 }
 
-/* NAVBAR */
+
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* Increased z-index to ensure it is on top */
     background: rgba(23, 23, 58, 0.95);
     backdrop-filter: blur(10px);
     padding: 8px 0;
@@ -60,16 +59,13 @@
 .nav-btn {
     color: rgba(255, 255, 255, 0.9);
     padding: 0 15px;
-    /* Horizontal padding only for spacing */
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     transition: 0.3s;
     position: relative;
     background: transparent;
-    /* Removed the "lighting" background */
     display: flex;
-    /* Helps with vertical alignment if needed */
     align-items: center;
     height: 100%;
 }

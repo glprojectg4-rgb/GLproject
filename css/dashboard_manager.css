@@ -1,60 +1,45 @@
-/* ======================================= */
-/* 👑 MANAGER DASHBOARD SPECIFIC STYLES */
-/* (Linked after dashboard_base.css to ensure overrides work) */
-/* ======================================= */
-
-/* --- SMALL METRIC CARD COLOR OVERRIDES --- */
-
-/* Total Donors Card: Primary Accent Color */
 .card-donors {
-    border-left-color: var(--primary-color); 
+    border-left-color: var(--primary-color);
 }
-/* Dark mode hover background */
+
 body.dark .card-donors:hover {
-    background: var(--primary-color-light); 
+    background: var(--primary-color-light);
 }
 
-/* CTS Centers Card: Manager Blue Color */
 .card-locations {
-    border-left-color: var(--manager-color); 
+    border-left-color: var(--manager-color);
 }
-/* Dark mode hover background */
+
 body.dark .card-locations:hover {
-    background: #2a3a5a; 
-}
-
-/* Pending Messages Card: Warning Orange Color */
-.card-messages {
-    border-left-color: var(--warning-color); 
-}
-/* Dark mode hover background */
-body.dark .card-messages:hover {
-    background: #3a3025;
-}
-
-
-/* --- QUICK ACTIONS COLOR OVERRIDES (MANAGER) --- */
-
-/* Hover for Manage Locations button (using Manager Blue) */
-a[href="locations.html"].big-btn:hover { 
-    background: #e6f3ff;
-}
-body.dark a[href="locations.html"].big-btn:hover { 
     background: #2a3a5a;
 }
 
-/* Hover for Send Campaigns button (using Warning Orange) */
-a[href="communication.html"].big-btn:hover { 
+.card-messages {
+    border-left-color: var(--warning-color);
+}
+
+a[href="locations.html"].big-btn:hover {
+    background: #e6f3ff;
+}
+
+body.dark a[href="locations.html"].big-btn:hover {
+    background: #2a3a5a;
+}
+
+
+a[href="communication.html"].big-btn:hover {
     background: #fff3e0;
 }
-body.dark a[href="communication.html"].big-btn:hover { 
+
+body.dark a[href="communication.html"].big-btn:hover {
     background: #3a3025;
 }
 
-/* Hover for Generate Reports button (using Blood Red) */
-a[href="reports.html"].big-btn:hover { 
+
+a[href="reports.html"].big-btn:hover {
     background: #ffebeb;
 }
-body.dark a[href="reports.html"].big-btn:hover { 
+
+body.dark a[href="reports.html"].big-btn:hover {
     background: #3a2525;
 }
