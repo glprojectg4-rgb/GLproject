@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Delete CTS Center
+   
     if (isset($_POST['delete_cts'])) {
         $id = $_POST['cts_id'];
         $stmt = $conn->prepare("DELETE FROM cts_centers WHERE id_cts_centers = ?");
@@ -39,13 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Add Donation Site (using recipients table as donation sites)
+    
     if (isset($_POST['add_site'])) {
         $name = $_POST['site_name'];
         $address = $_POST['site_address'];
         $phone = $_POST['site_phone'];
         
-        // Using recipients table to store donation sites
+       
         $stmt = $conn->prepare("INSERT INTO recipients (full_name, address, phone) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $address, $phone);
         
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Delete Donation Site
+    
     if (isset($_POST['delete_site'])) {
         $id = $_POST['site_id'];
         $stmt = $conn->prepare("DELETE FROM recipients WHERE id_recipients = ?");
@@ -223,7 +223,7 @@ $donation_sites = $conn->query("SELECT * FROM recipients ORDER BY created_at DES
                 </table>
             </div>
 
-            <!-- Donation Sites Section -->
+           
             <h2 class="section-title" style="margin-top: 40px;">Donation Sites</h2>
 
             <div class="form-card">
