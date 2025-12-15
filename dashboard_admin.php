@@ -1,11 +1,12 @@
 <?php
 
 session_start();
+require_once 'db_connection.php';
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
     header("Location: login.html");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -60,21 +61,21 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
                     </li>
 
                     <li class="nav-link">
-                        <a href="accounts_admin.html">
+                        <a href="accounts_admin.php">
                             <img src="Image/add-user.png" class="icon" alt="Accounts Icon">
                             <span class="text nav-text">Accounts</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="diseases_admin.html">
+                        <a href="diseases_admin.php">
                             <img src="Image/virus.png" class="icon" alt="Diseases Icon">
                             <span class="text nav-text">Diseases</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="admin_alerts.html">
+                        <a href="admin_alerts.php">
                             <img src="Image/danger.png" class="icon" alt="Alerts Icon">
                             <span class="text nav-text">System Alerts</span>
                         </a>
@@ -103,19 +104,19 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
             <div class="quick-actions-grid">
 
-                <a href="accounts_admin.html" class="big-btn">
+                <a href="accounts_admin.php" class="big-btn">
                     <img src="Image/add-user.png" class="big-btn-icon" alt="Accounts Icon">
                     <h3>Manage Accounts</h3>
                     <p>Create, edit, or remove user access.</p>
                 </a>
 
-                <a href="diseases_admin.html" class="big-btn">
+                <a href="diseases_admin.php" class="big-btn">
                     <img src="Image/virus.png" class="big-btn-icon" alt="Diseases Icon">
                     <h3>Manage Diseases</h3>
                     <p>Update list of detectable diseases.</p>
                 </a>
 
-                <a href="admin_alerts.html" class="big-btn">
+                <a href="admin_alerts.php" class="big-btn">
                     <img src="Image/danger.png" class="big-btn-icon" alt="System Alerts Icon">
                     <h3>System Alerts</h3>
                     <p>Monitor critical system notifications.</p>
@@ -127,17 +128,32 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
                 <div class="small-card">
                     <h4>Total Accounts</h4>
-                    <p>150</p>
+                    <p><?php
+                        $user_query = "SELECT COUNT(*) as count FROM users WHERE is_deleted = 0";
+                        $user_result = $conn->query($user_query);
+                        $user_count = $user_result->fetch_assoc()['count'];
+                        echo $user_count;
+                    ?></p>
                 </div>
 
                 <div class="small-card">
                     <h4>Total Diseases</h4>
-                    <p>24</p>
+                    <p><?php
+                        $disease_query = "SELECT COUNT(*) as count FROM diseases";
+                        $disease_result = $conn->query($disease_query);
+                        $disease_count = $disease_result->fetch_assoc()['count'];
+                        echo $disease_count;
+                    ?></p>
                 </div>
 
                 <div class="small-card">
                     <h4>Pending Alerts</h4>
-                    <p>5</p>
+                    <p><?php
+                        $alert_query = "SELECT COUNT(*) as count FROM alerts";
+                        $alert_result = $conn->query($alert_query);
+                        $alert_count = $alert_result->fetch_assoc()['count'];
+                        echo $alert_count;
+                    ?></p>
                 </div>
 
             </div>

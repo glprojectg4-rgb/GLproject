@@ -73,14 +73,14 @@ while ($row = $result->fetch_assoc()) {
                         </li>
 
                         <li class="nav-link">
-                            <a href="donations.html">
+                            <a href="donations.php">
                                 <img src="Image/donations.png" class="icon" alt="Donations Icon">
                                 <span class="text nav-text">Donations</span>
                             </a>
                         </li>
 
                         <li class="nav-link">
-                            <a href="universal_donors.html">
+                            <a href="universal_donors.php">
                                 <img src="Image/univ.png" class="icon" alt="Universal Donors Icon">
                                 <span class="text nav-text">Univ. Donors</span>
                             </a>
@@ -94,7 +94,7 @@ while ($row = $result->fetch_assoc()) {
                         </li>
 
                         <li class="nav-link">
-                            <a href="alert.html">
+                            <a href="alert.php">
                                 <img src="Image/alert.png" class="icon" alt="Alert Icon">
                                 <span class="text nav-text">Send Alert</span>
                             </a>

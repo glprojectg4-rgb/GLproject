@@ -1,11 +1,11 @@
 <?php
 session_start();
+require_once 'db_connection.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
     header("Location: login.html");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -64,21 +64,21 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
                         </li>
 
                         <li class="nav-link">
-                            <a href="donors.html">
+                            <a href="donors.php">
                                 <img src="Image/donations.png" class="icon" alt="Donors Icon">
                                 <span class="text nav-text">Donors</span>
                             </a>
                         </li>
 
                         <li class="nav-link">
-                            <a href="locations.html">
+                            <a href="locations.php">
                                 <img src="Image/location.png" class="icon" alt="Locations Icon">
                                 <span class="text nav-text">Locations</span>
                             </a>
                         </li>
 
                         <li class="nav-link">
-                            <a href="communication.html">
+                            <a href="communication.php">
                                 <img src="Image/message.png" class="icon" alt="Communicate Icon">
                                 <span class="text nav-text">Communicate</span>
                             </a>
@@ -108,19 +108,19 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
 
             <div class="quick-actions-grid">
 
-                <a href="donors.html" class="big-btn">
+                <a href="donors.php" class="big-btn">
                     <img src="Image/donations.png" class="big-btn-icon" alt="Donors Icon">
                     <h3>Manage Donors</h3>
                     <p>View, edit, and verify donor records.</p>
                 </a>
 
-                <a href="locations.html" class="big-btn">
+                <a href="locations.php" class="big-btn">
                     <img src="Image/location.png" class="big-btn-icon" alt="Locations Icon">
                     <h3>Manage Locations</h3>
                     <p>Register and oversee CTS centers.</p>
                 </a>
 
-                <a href="communication.html" class="big-btn">
+                <a href="communication.php" class="big-btn">
                     <img src="Image/message.png" class="big-btn-icon" alt="Communicate Icon">
                     <h3>Send Campaigns</h3>
                     <p>Communicate alerts and requests to specific donor groups.</p>
@@ -134,17 +134,35 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
 
                 <div class="small-card card-donors">
                     <h4>Total Donors</h4>
-                    <p>1,250</p>
+                    <p><?php
+                        $donors_query = "SELECT COUNT(*) as count FROM donors";
+                        $donors_result = $conn->query($donors_query);
+                        echo $donors_result->fetch_assoc()['count'];
+                    ?></p>
                 </div>
 
                 <div class="small-card card-locations">
                     <h4>CTS Centers Registered</h4>
-                    <p>12</p>
+                    <p><?php
+                        $cts_query = "SELECT COUNT(*) as count FROM cts_centers";
+                        $cts_result = $conn->query($cts_query);
+                        echo $cts_result->fetch_assoc()['count'];
+                    ?></p>
                 </div>
 
                 <div class="small-card card-messages">
-                    <h4>Pending Messages</h4>
-                    <p>4</p>
+                    <h4>Partners & Associations</h4>
+                    <p><?php
+                        $partners_query = "SELECT COUNT(*) as count FROM partners";
+                        $partners_result = $conn->query($partners_query);
+                        $partners_count = $partners_result->fetch_assoc()['count'];
+
+                        $assoc_query = "SELECT COUNT(*) as count FROM associations";
+                        $assoc_result = $conn->query($assoc_query);
+                        $assoc_count = $assoc_result->fetch_assoc()['count'];
+
+                        echo ($partners_count + $assoc_count);
+                    ?></p>
                 </div>
 
             </div>

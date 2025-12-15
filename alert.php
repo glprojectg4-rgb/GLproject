@@ -6,6 +6,24 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
     header("Location: login.html");
     exit();
 }
+
+$message = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $donor_name = $_POST['donor_name'];
+    $disease = $_POST['disease'];
+    $date = $_POST['date'];
+    $agent_id = $_SESSION['user_id'];
+
+    $stmt = $conn->prepare("INSERT INTO alerts (donor_name, disease_detected, appointment_date, agent_id) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssi", $donor_name, $disease, $date, $agent_id);
+    
+    if ($stmt->execute()) {
+        $message = "Alert sent successfully.";
+    } else {
+        $message = "Error: " . $conn->error;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +31,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Agent Dashboard</title>
-
+    <title>Send Alert</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/navbar.css">
-
-    </head>
+    <link rel="stylesheet" href="css/agent_pages.css">
+</head>
 
 <body>
 
@@ -64,7 +81,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                             </a>
                         </li>
 
-                        <li class="nav-link">
+                         <li class="nav-link">
                             <a href="donations.php">
                                 <img src="Image/donations.png" class="icon" alt="Donations Icon">
                                 <span class="text nav-text">Donations</span>
@@ -86,7 +103,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                         </li>
 
                         <li class="nav-link">
-                            <a href="alert.php">
+                            <a href="alert.php" class="active">
                                 <img src="Image/alert.png" class="icon" alt="Alert Icon">
                                 <span class="text nav-text">Send Alert</span>
                             </a>
@@ -112,76 +129,34 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
         </nav>
 
         <div class="content">
-            <h1>Welcome Agent</h1>
 
-            <div class="quick-actions-grid">
+            <h1 class="gradient-text">Send Alert</h1>
 
-                <a href="donations.php" class="big-btn">
-                    <img src="Image/donations.png" class="big-btn-icon" alt="Donations Icon">
-                    <h3>Manage Donations</h3>
-                    <p>Register new donations and update records.</p>
-                </a>
+             <?php if ($message): ?>
+                <div style="background: #e3f2fd; color: #0d47a1; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+                    <?php echo $message; ?>
+                </div>
+            <?php endif; ?>
 
-                <a href="universal_donors.php" class="big-btn">
-                    <img src="Image/univ.png" class="big-btn-icon" alt="Universal Donors Icon">
-                    <h3>Universal Donors</h3>
-                    <p>List, verify, and track O- donors.</p>
-                </a>
+            <div class="form-card">
+                <form method="POST" action="alert.php">
+                    <label>Donor Name</label>
+                    <input type="text" name="donor_name" placeholder="Enter full name" required>
 
-                <a href="stock.php" class="big-btn">
-                    <img src="Image/stock.png" class="big-btn-icon" alt="Blood Stock Icon">
-                    <h3>Blood Stock</h3>
-                    <p>Monitor blood levels by blood type.</p>
-                </a>
+                    <label>Disease Detected</label>
+                    <input type="text" name="disease" placeholder="Enter disease" required>
 
-                <a href="alert.php" class="big-btn">
-                    <img src="Image/alert.png" class="big-btn-icon" alt="Alert Icon">
-                    <h3>Send Alert</h3>
-                    <p>Immediate emergency notifications to donors.</p>
-                </a>
+                    <label>Appointment Date</label>
+                    <input type="date" name="date" required>
 
+                    <button class="submit-btn">Send Alert</button>
+                </form>
             </div>
 
-            <div class="small-cards-row">
-                <div class="small-card">
-                    <h4>Today’s Donations</h4>
-                    <p><?php 
-                        $today_query = "SELECT COUNT(*) as count FROM donations WHERE DATE(created_at) = CURDATE()";
-                        $today_res = $conn->query($today_query);
-                        echo $today_res->fetch_assoc()['count'];
-                    ?> Units</p>
-                </div>
-
-                <div class="small-card">
-                    <h4>Critical Blood Types</h4>
-                    <p><?php
-                        // Logic: Find types with count < 5 (example threshold)
-                        // This is a simplified logic for display
-                        $stock_q = "SELECT blood_type, rhesus_factor, COUNT(*) as cnt FROM donors GROUP BY blood_type, rhesus_factor HAVING cnt < 5";
-                        $stock_res = $conn->query($stock_q);
-                        $critical = [];
-                        while($row = $stock_res->fetch_assoc()) {
-                            $critical[] = $row['blood_type'] . $row['rhesus_factor'];
-                        }
-                        echo !empty($critical) ? implode(", ", $critical) : "None";
-                    ?></p>
-                </div>
-
-                <div class="small-card">
-                    <h4>Pending Alerts</h4>
-                    <p><?php 
-                         $alert_q = "SELECT COUNT(*) as count FROM alerts";
-                         $alert_res = $conn->query($alert_q);
-                         echo $alert_res->fetch_assoc()['count'];
-                    ?> Requests</p>
-                </div>
-            </div>
         </div>
 
     </div>
-
     <script src="script.js"></script>
-
 </body>
 
 </html>

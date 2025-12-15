@@ -6,6 +6,17 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
     header("Location: login.html");
     exit();
 }
+
+// Universal donors are those who made universal donations (not targeted to specific recipient)
+$donors = $conn->query("SELECT DISTINCT donor_name, 
+    (SELECT phone FROM donors WHERE full_name = donations.donor_name LIMIT 1) as phone,
+    (SELECT address FROM donors WHERE full_name = donations.donor_name LIMIT 1) as address,
+    (SELECT CONCAT(blood_type, rhesus_factor) FROM donors WHERE full_name = donations.donor_name LIMIT 1) as blood_type,
+    COUNT(*) as donation_count
+    FROM donations 
+    WHERE donation_type = 'universal' 
+    GROUP BY donor_name 
+    ORDER BY donation_count DESC");
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +24,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Agent Dashboard</title>
-
+    <title>Universal Donors</title>
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/agent_pages.css">
 
-    </head>
+</head>
 
 <body>
 
@@ -72,7 +83,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
                         </li>
 
                         <li class="nav-link">
-                            <a href="universal_donors.php">
+                            <a href="universal_donors.php" class="active">
                                 <img src="Image/univ.png" class="icon" alt="Universal Donors Icon">
                                 <span class="text nav-text">Univ. Donors</span>
                             </a>
@@ -111,77 +122,41 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
             </div>
         </nav>
 
+
         <div class="content">
-            <h1>Welcome Agent</h1>
 
-            <div class="quick-actions-grid">
+            <h1 class="gradient-text">Universal Donors</h1>
 
-                <a href="donations.php" class="big-btn">
-                    <img src="Image/donations.png" class="big-btn-icon" alt="Donations Icon">
-                    <h3>Manage Donations</h3>
-                    <p>Register new donations and update records.</p>
-                </a>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Donor Name</th>
+                            <th>Blood Type</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Universal Donations</th>
+                        </tr>
+                    </thead>
 
-                <a href="universal_donors.php" class="big-btn">
-                    <img src="Image/univ.png" class="big-btn-icon" alt="Universal Donors Icon">
-                    <h3>Universal Donors</h3>
-                    <p>List, verify, and track O- donors.</p>
-                </a>
-
-                <a href="stock.php" class="big-btn">
-                    <img src="Image/stock.png" class="big-btn-icon" alt="Blood Stock Icon">
-                    <h3>Blood Stock</h3>
-                    <p>Monitor blood levels by blood type.</p>
-                </a>
-
-                <a href="alert.php" class="big-btn">
-                    <img src="Image/alert.png" class="big-btn-icon" alt="Alert Icon">
-                    <h3>Send Alert</h3>
-                    <p>Immediate emergency notifications to donors.</p>
-                </a>
-
+                    <tbody>
+                        <?php while($row = $donors->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['donor_name']); ?></td>
+                            <td><?php echo htmlspecialchars($row['blood_type'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($row['phone'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($row['address'] ?? 'N/A'); ?></td>
+                            <td><strong><?php echo $row['donation_count']; ?></strong></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="small-cards-row">
-                <div class="small-card">
-                    <h4>Today’s Donations</h4>
-                    <p><?php 
-                        $today_query = "SELECT COUNT(*) as count FROM donations WHERE DATE(created_at) = CURDATE()";
-                        $today_res = $conn->query($today_query);
-                        echo $today_res->fetch_assoc()['count'];
-                    ?> Units</p>
-                </div>
-
-                <div class="small-card">
-                    <h4>Critical Blood Types</h4>
-                    <p><?php
-                        // Logic: Find types with count < 5 (example threshold)
-                        // This is a simplified logic for display
-                        $stock_q = "SELECT blood_type, rhesus_factor, COUNT(*) as cnt FROM donors GROUP BY blood_type, rhesus_factor HAVING cnt < 5";
-                        $stock_res = $conn->query($stock_q);
-                        $critical = [];
-                        while($row = $stock_res->fetch_assoc()) {
-                            $critical[] = $row['blood_type'] . $row['rhesus_factor'];
-                        }
-                        echo !empty($critical) ? implode(", ", $critical) : "None";
-                    ?></p>
-                </div>
-
-                <div class="small-card">
-                    <h4>Pending Alerts</h4>
-                    <p><?php 
-                         $alert_q = "SELECT COUNT(*) as count FROM alerts";
-                         $alert_res = $conn->query($alert_q);
-                         echo $alert_res->fetch_assoc()['count'];
-                    ?> Requests</p>
-                </div>
-            </div>
         </div>
 
     </div>
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
