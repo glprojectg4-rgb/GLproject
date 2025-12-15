@@ -1,14 +1,11 @@
 <?php
-// ✅ Start session
 session_start();
 
-// Check if role is not set OR role is not 'manager'
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
-    // Redirect unauthenticated user
     header("Location: login.html");
     exit();
 }
-// If the user IS a manager, the script continues to render the HTML.
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +17,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
 
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <!-- Manager specifics tailored to override agent defaults -->
     <link rel="stylesheet" href="css/dashboard_manager.css">
 
 </head>
@@ -110,7 +106,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
         <div class="content">
             <h1>Welcome Manager</h1>
 
-            <!-- Quick Actions Grid (Moved to top to match Agent Dashboard) -->
             <div class="quick-actions-grid">
 
                 <a href="donors.html" class="big-btn">
@@ -135,7 +130,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
 
             </div>
 
-            <!-- Small Cards Row (Moved below Grid) -->
             <div class="small-cards-row">
 
                 <div class="small-card card-donors">

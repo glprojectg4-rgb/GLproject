@@ -1,112 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blood Bank - Login</title>
-<link rel="stylesheet" href="css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank - Login</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
-<div class="split-container">
-    <!-- Left side -->
-    <div class="left-side">
-        <div class="logo">
-            <img src="Image/drop-of-blood-emoji.png" alt="Logo">
-            <span>Blood Bank</span>
+    <div class="split-container">
+        <div class="left-side">
+            <div class="logo">
+                <img src="Image/drop-of-blood-emoji.png" alt="Logo">
+                <span>Blood Bank</span>
+            </div>
+
+            <div id="loginForm" class="form-card active">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Sign in to your account</p>
+                <form action="login.php" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <select name="account_type" required>
+                            <option value="" disabled selected>Select Account Type</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="agent">Agent</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <p class="forgot"><a href="#" id="toForgot">Forgot Password?</a></p>
+                </form>
+            </div>
+
+            <div id="forgotForm" class="form-card hidden">
+                <h2>Reset Your Password</h2>
+                <p class="subtitle">We will send a recovery link to your email</p>
+                <form action="forgot_password.php" method="POST">
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <button type="submit" class="btn">Send Reset Link</button>
+                    <p class="back"><a href="#" id="toLogin">Back to Login</a></p>
+                </form>
+            </div>
+
+            <div class="motivation">
+                <p>"Every drop counts. Together, we save lives!"</p>
+            </div>
         </div>
 
-        <!-- Login Box -->
-        <div id="loginForm" class="form-card active">
-            <h2>Welcome Back</h2>
-            <p class="subtitle">Sign in to your account</p>
-            <form action="login.php" method="POST">
-                <div class="input-group">
-                    <input type="text" name="username" placeholder="Username" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="input-group">
-                    <select name="account_type" required>
-                        <option value="" disabled selected>Select Account Type</option>
-                        <option value="admin">Admin</option>
-                        <option value="manager">Manager</option>
-                        <option value="agent">Agent</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <p class="forgot"><a href="#" id="toForgot">Forgot Password?</a></p>
-            </form>
-        </div>
+        <div class="right-side">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
 
-        <!-- Forgot Password Box -->
-        <div id="forgotForm" class="form-card hidden">
-            <h2>Reset Your Password</h2>
-            <p class="subtitle">We will send a recovery link to your email</p>
-            <form action="forgot_password.php" method="POST">
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                </div>
-                <button type="submit" class="btn">Send Reset Link</button>
-                <p class="back"><a href="#" id="toLogin">Back to Login</a></p>
-            </form>
-        </div>
+            <div class="hero-wrapper">
+                <img src="Image/blood-donor.png" alt="Blood Donation" class="right-hero">
+            </div>
 
-        <div class="motivation">
-            <p>"Every drop counts. Together, we save lives!"</p>
-        </div>
-    </div>
-
-    <!-- Right side -->
-    <div class="right-side">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </nav>
-
-        <!-- Hero image wrapper -->
-        <div class="hero-wrapper">
-            <img src="Image/blood-donor.png" alt="Blood Donation" class="right-hero">
-        </div>
-
-        <!-- Dark mode toggle -->
-        <div class="bottom-content">
-            <div class="mode">
-                <div class="sun-moon">
-                    <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
-                    <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
-                </div>
-                <span class="mode-text">Dark mode</span>
-                <div class="toggle-switch">
-                    <span class="switch"></span>
+            <div class="bottom-content">
+                <div class="mode">
+                    <div class="sun-moon">
+                        <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
+                        <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
+                    </div>
+                    <span class="mode-text">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="darkmod_login.js"></script>
-<script>
-    const loginForm = document.getElementById("loginForm");
-    const forgotForm = document.getElementById("forgotForm");
-    const toForgot = document.getElementById("toForgot");
-    const toLogin = document.getElementById("toLogin");
+    <script src="darkmod_login.js"></script>
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const forgotForm = document.getElementById("forgotForm");
+        const toForgot = document.getElementById("toForgot");
+        const toLogin = document.getElementById("toLogin");
 
-    toForgot.addEventListener("click", e => {
-        e.preventDefault();
-        loginForm.classList.remove("active");
-        loginForm.classList.add("hidden");
-        forgotForm.classList.remove("hidden");
-        forgotForm.classList.add("active");
-    });
+        toForgot.addEventListener("click", e => {
+            e.preventDefault();
+            loginForm.classList.remove("active");
+            loginForm.classList.add("hidden");
+            forgotForm.classList.remove("hidden");
+            forgotForm.classList.add("active");
+        });
 
-    toLogin.addEventListener("click", e => {
-        e.preventDefault();
-        forgotForm.classList.remove("active");
-        forgotForm.classList.add("hidden");
-        loginForm.classList.remove("hidden");
-        loginForm.classList.add("active");
-    });
-</script>
+        toLogin.addEventListener("click", e => {
+            e.preventDefault();
+            forgotForm.classList.remove("active");
+            forgotForm.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+            loginForm.classList.add("active");
+        });
+    </script>
 </body>
+
 </html>

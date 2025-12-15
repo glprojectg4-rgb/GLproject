@@ -1,11 +1,10 @@
 <?php
 $host = 'localhost';
-$db = 'blood_management';      // اسم قاعدة البيانات التي أنشأتها في phpMyAdmin
-$user = 'root';            // اسم المستخدم الافتراضي في MAMP
-$pass = 'GL.Root.360';            // كلمة المرور الافتراضية في MAMP
+$db = 'blood_management';
+$user = 'root';
+$pass = 'GL.Root.360';
 
-// إذا كنت على macOS، أضف رقم المنفذ (عادة 8889)
-$port = 3306; // أو 3306 في Windows
+$port = 3306;
 
 $conn = new mysqli($host, $user, $pass, $db, $port);
 

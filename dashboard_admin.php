@@ -22,7 +22,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
 <body>
 
-    <!-- NAVBAR -->
     <div class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -39,7 +38,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
     <div class="dashboard-container">
 
-        <!-- SIDEBAR -->
         <nav class="sidebar">
             <header>
                 <div class="image-text">
@@ -84,7 +82,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
                 </ul>
 
-                <!-- DARK MODE -->
                 <div class="bottom-content">
                     <li class="mode">
                         <div class="sun-moon">
@@ -101,11 +98,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
             </div>
         </nav>
 
-        <!-- CONTENT -->
         <div class="content">
             <h1>Welcome Admin</h1>
 
-            <!-- QUICK ACTIONS GRID -->
             <div class="quick-actions-grid">
 
                 <a href="accounts_admin.html" class="big-btn">
@@ -128,22 +123,21 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "admin") {
 
             </div>
 
-            <!-- SMALL STATS CARDS -->
             <div class="small-cards-row">
 
                 <div class="small-card">
                     <h4>Total Accounts</h4>
-                    <p>150</p> <!-- Placeholder -->
+                    <p>150</p>
                 </div>
 
                 <div class="small-card">
                     <h4>Total Diseases</h4>
-                    <p>24</p> <!-- Placeholder -->
+                    <p>24</p>
                 </div>
 
                 <div class="small-card">
                     <h4>Pending Alerts</h4>
-                    <p>5</p> <!-- Placeholder -->
+                    <p>5</p>
                 </div>
 
             </div>

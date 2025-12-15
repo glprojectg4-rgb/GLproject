@@ -36,7 +36,6 @@ if (isset($_GET['token'])) {
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <!-- Use dashboard styles for consistency (variables, fonts) -->
     <link rel="stylesheet" href="css/dashboard_agent.css">
     <link rel="stylesheet" href="css/agent_pages.css">
     
@@ -53,7 +52,7 @@ if (isset($_GET['token'])) {
             position: relative;
         }
 
-        /* Dark overlay to ensure text readability on the image */
+
         body::before {
             content: "";
             position: absolute;
@@ -73,12 +72,12 @@ if (isset($_GET['token'])) {
             width: 90%;
             max-width: 400px;
             text-align: center;
-            /* Glassmorphism hint or just clean white card */
+            text-align: center;
         }
 
         .reset-card h2 {
             margin-bottom: 25px;
-            color: #b70b0b; /* Primary Red */
+            color: #b70b0b;
             font-size: 26px;
             font-weight: 600;
         }
@@ -108,7 +107,7 @@ if (isset($_GET['token'])) {
             font-size: 15px;
             outline: none;
             transition: all 0.3s ease;
-            box-sizing: border-box; /* Fix padding issue */
+            box-sizing: border-box;
         }
 
         .reset-card input[type="password"]:focus {
@@ -140,7 +139,7 @@ if (isset($_GET['token'])) {
     <div class="reset-card">
         <h2>Reset Your Password</h2>
         <form action="reset_password.php" method="POST">
-            <!-- Ensure userId is passed correctly if available -->
+
             <input type="hidden" name="user_id" value="<?= isset($userId) ? $userId : '' ?>">
             
             <div class="input-group">

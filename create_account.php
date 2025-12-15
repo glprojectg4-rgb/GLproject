@@ -10,10 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_POST['role'];
     $status = $_POST['status'];
 
-    // تشفير كلمة المرور
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // إعداد الاستعلام
     $stmt = $conn->prepare("INSERT INTO users 
         (username, password, email, phone, full_name, role, status, email_verified, created_by, updated_by) 
         VALUES (?, ?, ?, ?, ?, ?, ?, 1, 1, 1)");

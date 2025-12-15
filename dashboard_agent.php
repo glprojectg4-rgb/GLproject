@@ -1,13 +1,10 @@
 <?php
-// ✅Start session and check if agent is logged in
 session_start();
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
     header("Location: login.html");
     exit();
 }
 
-// Placeholder variables for the dynamic content
-// Replace these with actual database fetches in a live environment
 $total_donations_today = 42;
 $critical_blood_types = "O-, AB-";
 $pending_alerts_count = 7;

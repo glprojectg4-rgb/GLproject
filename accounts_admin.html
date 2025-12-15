@@ -12,7 +12,6 @@
 
 <body>
 
-    <!-- NAVBAR -->
     <div class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -29,7 +28,6 @@
 
     <div class="dashboard-container">
 
-        <!-- SIDEBAR -->
         <nav class="sidebar">
             <header>
                 <div class="image-text">
@@ -53,7 +51,6 @@
                                 class="text nav-text">System Alerts</span></a></li>
                 </ul>
 
-                <!-- DARK MODE -->
                 <div class="bottom-content">
                     <li class="mode">
                         <div class="sun-moon">
@@ -67,11 +64,9 @@
             </div>
         </nav>
 
-        <!-- CONTENT -->
         <div class="content">
             <h1 class="gradient-text">Manage Accounts</h1>
 
-            <!-- ADD ACCOUNT FORM -->
             <div class="form-card">
                 <h3>Add New Account</h3>
 
@@ -95,7 +90,6 @@
                 </form>
             </div>
 
-            <!-- ACCOUNTS TABLE -->
             <div class="table-card">
                 <h3>Users Accounts</h3>
                 <table>
@@ -112,7 +106,10 @@
                             <td>Example User</td>
                             <td>user@mail.com</td>
                             <td>Manager</td>
-                            <td>Edit | Delete</td>
+                            <td>
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

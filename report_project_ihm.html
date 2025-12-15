@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             background: #e0e0e0;
-            /* Grey background for screen view */
+            background: #e0e0e0;
             font-family: 'Merriweather', serif;
             color: var(--text-color);
             line-height: 1.6;
@@ -34,7 +34,6 @@
             position: relative;
         }
 
-        /* Print styles to make it look like a PDF */
         @media print {
             body {
                 background: white;
@@ -52,7 +51,7 @@
             }
         }
 
-        /* Typography */
+
         h1,
         h2,
         h3,
@@ -95,7 +94,6 @@
             font-size: 11pt;
         }
 
-        /* Cover Page styling */
         .cover-page {
             display: flex;
             flex-direction: column;
@@ -103,7 +101,7 @@
             justify-content: center;
             text-align: center;
             height: 250mm;
-            /* Approximate content height */
+            height: 250mm;
         }
 
         .cover-logo {
@@ -146,7 +144,6 @@
             font-weight: normal;
         }
 
-        /* Table of Contents */
         .toc {
             margin-top: 40px;
         }
@@ -159,7 +156,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Images */
+
         .screenshot-placeholder {
             width: 100%;
             height: 200px;
@@ -173,7 +170,6 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Banner for instructions */
         .print-banner {
             background: #333;
             color: white;
@@ -202,7 +198,6 @@
         <button class="print-btn" onclick="window.print()">Click Here to Print / Save as PDF</button>
     </div>
 
-    <!-- COVER PAGE -->
     <div class="page">
         <div class="cover-page">
             <div class="university">University of Blood Management</div>
@@ -219,7 +214,6 @@
         </div>
     </div>
 
-    <!-- CONTENT START -->
     <div class="page">
         <h2>1. Introduction</h2>
         <p>The "Blood Donation Management System" is a web-based application designed to facilitate the complex process

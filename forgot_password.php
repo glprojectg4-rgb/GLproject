@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Composer autoloader for PHPMailer
+require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -8,7 +8,7 @@ require_once 'db_connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
-    // Check if email exists
+
     $stmt = $conn->prepare("SELECT id_users FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -19,32 +19,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = bin2hex(random_bytes(32));
         $expires = date("Y-m-d H:i:s", strtotime("+2 hours"));
 
-        // Store token and expiration in database
+
         $update = $conn->prepare("UPDATE users SET reset_token = ?, reset_token_expires = ? WHERE id_users = ?");
         $update->bind_param("ssi", $token, $expires, $user['id_users']);
         $update->execute();
 
-        // Generate reset link
+
         $resetLink = "http://localhost/GLProject/reset_password.php?token=$token";
 
-        // Send email using PHPMailer
+
         $mail = new PHPMailer(true);
 
         try {
-            // SMTP configuration
+
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'glprojectg4@gmail.com';       // Replace with your Gmail
-            $mail->Password = 'pidk oqgf tmyx miba';          // Replace with your App Password
+            $mail->Username = 'glprojectg4@gmail.com';
+            $mail->Password = 'pidk oqgf tmyx miba';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            // Sender and recipient
+
             $mail->setFrom('your_email@gmail.com', 'Blood Bank System');
             $mail->addAddress($email);
 
-            // Email content
+
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body = "

@@ -51,7 +51,6 @@ while ($row = $result->fetch_assoc()) {
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <!-- Placeholder User Image -->
                         <img src="Image/user2.png" alt="User">
                     </span>
 
@@ -66,7 +65,6 @@ while ($row = $result->fetch_assoc()) {
                 <div class="menu">
                     <ul class="menu-links">
 
-                        <!-- Dashboard - Using home.png -->
                         <li class="nav-link">
                             <a href="dashboard_agent.php">
                                 <img src="Image/home.png" class="icon" alt="Dashboard Icon">
@@ -74,7 +72,6 @@ while ($row = $result->fetch_assoc()) {
                             </a>
                         </li>
 
-                        <!-- Manage Donations - Using donation.png -->
                         <li class="nav-link">
                             <a href="donations.html">
                                 <img src="Image/donations.png" class="icon" alt="Donations Icon">
@@ -82,7 +79,6 @@ while ($row = $result->fetch_assoc()) {
                             </a>
                         </li>
 
-                        <!-- Universal Donors - Using univ.png -->
                         <li class="nav-link">
                             <a href="universal_donors.html">
                                 <img src="Image/univ.png" class="icon" alt="Universal Donors Icon">
@@ -90,15 +86,13 @@ while ($row = $result->fetch_assoc()) {
                             </a>
                         </li>
 
-                        <!-- Blood Stock - Using stock.png -->
                         <li class="nav-link">
-                            <a href="stock.php" class="active"> <!-- Fixed Link -->
+                            <a href="stock.php" class="active">
                                 <img src="Image/stock.png" class="icon" alt="Blood Stock Icon">
                                 <span class="text nav-text">Blood Stock</span>
                             </a>
                         </li>
 
-                        <!-- Send Alert - Using alert.png -->
                         <li class="nav-link">
                             <a href="alert.html">
                                 <img src="Image/alert.png" class="icon" alt="Alert Icon">
@@ -109,13 +103,10 @@ while ($row = $result->fetch_assoc()) {
                     </ul>
                 </div>
 
-                <!-- Dark Mode Toggle (Kept Boxicons for sun/moon appearance) -->
                 <div class="bottom-content">
                     <li class="mode">
                         <div class="sun-moon">
-                            <!-- Using dark.png for the moon icon -->
                             <img src="Image/dark.png" class="icon moon" alt="Dark Mode Icon">
-                            <!-- Assuming light.png for the sun icon -->
                             <img src="Image/light.png" class="icon sun" alt="Light Mode Icon">
                         </div>
                         <span class="mode-text text">Dark mode</span>
@@ -180,7 +171,6 @@ while ($row = $result->fetch_assoc()) {
         </div>
 
     </div>
-    <!-- JavaScript for Dark Mode (Linked externally) -->
     <script src="script.js"></script>
 </body>
 
