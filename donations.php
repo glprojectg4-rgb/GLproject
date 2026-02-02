@@ -165,7 +165,7 @@ $donations = $conn->query("SELECT * FROM donations ORDER BY created_at DESC");
                     <input type="text" name="donor_name" placeholder="Enter donor name" required>
 
                     <label>Donation Type</label>
-                    <select name="donation_type" required>
+                    <select name="donation_type" id="donation_type" required onchange="toggleRecipient()">
                         <option value="universal">Universal</option>
                         <option value="targeted">Targeted Donation</option>
                     </select>
@@ -174,7 +174,7 @@ $donations = $conn->query("SELECT * FROM donations ORDER BY created_at DESC");
                     <input type="number" name="quantity" placeholder="Example: 450" required> <!-- Field not in DB, but good for form -->
 
                     <label>Recipient Full Name (For Targeted)</label>
-                    <input type="text" name="recipient_name" placeholder="Optional">
+                    <input type="text" name="recipient_name" id="recipient_name" placeholder="Optional">
 
                     <label>Recipient Date of Birth</label>
                     <input type="date" name="recipient_dob">
@@ -219,7 +219,24 @@ $donations = $conn->query("SELECT * FROM donations ORDER BY created_at DESC");
         </div>
 
     </div>
+    </div>
     <script src="script.js"></script>
+    <script>
+        function toggleRecipient() {
+            const type = document.getElementById('donation_type').value;
+            const recipientInput = document.getElementById('recipient_name');
+            
+            if (type === 'targeted') {
+                recipientInput.required = true;
+                recipientInput.placeholder = "Required for Targeted Donation";
+            } else {
+                recipientInput.required = false;
+                recipientInput.placeholder = "Optional";
+            }
+        }
+        // Init
+        toggleRecipient();
+    </script>
 </body>
 
 </html>

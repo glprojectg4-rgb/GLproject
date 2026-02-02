@@ -280,7 +280,10 @@ $recent_messages = $conn->query("SELECT * FROM messages ORDER BY created_at DESC
             </div>
 
             <div class="table-card">
-                <h3>Partners List</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="margin: 0;">Partners List</h3>
+                    <a href="export.php?export=partners" class="submit-btn" style="text-decoration: none; background: #28a745; margin: 0;">Export Partners</a>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -329,7 +332,10 @@ $recent_messages = $conn->query("SELECT * FROM messages ORDER BY created_at DESC
             </div>
 
             <div class="table-card">
-                <h3>Associations List</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="margin: 0;">Associations List</h3>
+                    <a href="export.php?export=associations" class="submit-btn" style="text-decoration: none; background: #28a745; margin: 0;">Export Associations</a>
+                </div>
                 <table>
                     <thead>
                         <tr>

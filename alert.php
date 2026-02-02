@@ -9,14 +9,30 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== "agent") {
 
 $message = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $donor_name = $_POST['donor_name'];
-    $disease = $_POST['disease'];
-    $date = $_POST['date'];
-    $agent_id = $_SESSION['user_id'];
+// Ensure alert_type column exists (Temporary auto-migration)
+$check_col = $conn->query("SHOW COLUMNS FROM alerts LIKE 'alert_type'");
+if ($check_col->num_rows == 0) {
+    $conn->query("ALTER TABLE alerts ADD COLUMN alert_type ENUM('disease', 'stock') DEFAULT 'disease'");
+}
 
-    $stmt = $conn->prepare("INSERT INTO alerts (donor_name, disease_detected, appointment_date, agent_id) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $donor_name, $disease, $date, $agent_id);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $alert_type = $_POST['alert_type'];
+    $agent_id = $_SESSION['user_id'];
+    $date = date('Y-m-d'); // Default to today
+
+    if ($alert_type === 'stock') {
+        $blood_type = $_POST['blood_type'];
+        $disease = "Low Stock: " . $blood_type;
+        $donor_name = "System"; // Placeholder for stock alerts
+        $appointment_date = $date;
+    } else {
+        $donor_name = $_POST['donor_name'];
+        $disease = $_POST['disease'];
+        $appointment_date = $_POST['date'];
+    }
+
+    $stmt = $conn->prepare("INSERT INTO alerts (donor_name, disease_detected, appointment_date, agent_id, alert_type) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssis", $donor_name, $disease, $appointment_date, $agent_id, $alert_type);
     
     if ($stmt->execute()) {
         $message = "Alert sent successfully.";
@@ -140,16 +156,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="form-card">
                 <form method="POST" action="alert.php">
-                    <label>Donor Name</label>
-                    <input type="text" name="donor_name" placeholder="Enter full name" required>
+                    <label>Alert Type</label>
+                    <select name="alert_type" id="alert_type" onchange="toggleFields()" required>
+                        <option value="disease">Disease Detection</option>
+                        <option value="stock">Low Blood Stock</option>
+                    </select>
 
-                    <label>Disease Detected</label>
-                    <input type="text" name="disease" placeholder="Enter disease" required>
+                    <div id="disease_fields">
+                        <label>Donor Name</label>
+                        <input type="text" name="donor_name" placeholder="Enter full name">
 
-                    <label>Appointment Date</label>
-                    <input type="date" name="date" required>
+                        <label>Disease Detected</label>
+                        <input type="text" name="disease" placeholder="Enter disease">
 
-                    <button class="submit-btn">Send Alert</button>
+                        <label>Appointment Date</label>
+                        <input type="date" name="date">
+                    </div>
+
+                    <div id="stock_fields" style="display: none;">
+                        <label>Blood Type Low</label>
+                        <select name="blood_type">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <button class="submit-btn" style="margin-top: 15px;">Send Alert</button>
                 </form>
             </div>
 
@@ -157,6 +195,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </div>
     <script src="script.js"></script>
+    <script>
+        function toggleFields() {
+            const type = document.getElementById('alert_type').value;
+            const diseaseFields = document.getElementById('disease_fields');
+            const stockFields = document.getElementById('stock_fields');
+            
+            if (type === 'stock') {
+                diseaseFields.style.display = 'none';
+                stockFields.style.display = 'block';
+                
+                // Remove required from disease fields to verify form is valid
+                document.getElementsByName('donor_name')[0].required = false;
+                document.getElementsByName('disease')[0].required = false;
+                document.getElementsByName('date')[0].required = false;
+                document.getElementsByName('blood_type')[0].required = true;
+            } else {
+                diseaseFields.style.display = 'block';
+                stockFields.style.display = 'none';
+
+                document.getElementsByName('donor_name')[0].required = true;
+                document.getElementsByName('disease')[0].required = true;
+                document.getElementsByName('date')[0].required = true;
+                document.getElementsByName('blood_type')[0].required = false;
+            }
+        }
+        // Init
+        toggleFields();
+    </script>
 </body>
 
 </html>

@@ -95,10 +95,28 @@ $alerts = $conn->query("SELECT * FROM alerts ORDER BY created_at DESC");
                     <tbody>
                         <?php while($row = $alerts->fetch_assoc()): ?>
                         <tr>
-                            <td>Disease Detection Alert</td>
-                            <td class="low" style="color: red; font-weight: bold;"><?php echo htmlspecialchars($row['disease_detected']); ?></td>
-                            <td><?php echo htmlspecialchars($row['donor_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+                            <td>
+                                <?php 
+                                    if ($row['alert_type'] === 'stock') {
+                                        echo "Stock Status Alert";
+                                    } else {
+                                        echo "Disease Detection Alert";
+                                    }
+                                ?>
+                            </td>
+                            <td class="low" style="color: red; font-weight: bold;">
+                                <?php echo htmlspecialchars($row['disease_detected']); ?>
+                            </td>
+                            <td>
+                                <?php 
+                                    if ($row['alert_type'] === 'stock') {
+                                        echo "<em>System Generated</em>";
+                                    } else {
+                                        echo htmlspecialchars($row['donor_name']); 
+                                    }
+                                ?>
+                            </td>
+                            <td><?php echo htmlspecialchars($row['appointment_date']); ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>

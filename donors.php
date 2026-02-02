@@ -231,7 +231,10 @@ if ($search) {
 
             <!-- Donors List -->
             <div class="table-card">
-                <h3>Donors List <?php if ($search) echo "- Search Results"; ?></h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="margin: 0;">Donors List <?php if ($search) echo "- Search Results"; ?></h3>
+                    <a href="export.php?export=donors" class="submit-btn" style="text-decoration: none; background: #28a745; margin: 0;">Export to CSV</a>
+                </div>
                 <table>
                     <thead>
                         <tr>

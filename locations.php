@@ -2,6 +2,15 @@
 session_start();
 require_once 'db_connection.php';
 
+// Ensure donation_sites table exists
+$conn->query("CREATE TABLE IF NOT EXISTS donation_sites (
+    id_donation_sites INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "manager") {
     header("Location: login.html");
     exit();
@@ -45,8 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $address = $_POST['site_address'];
         $phone = $_POST['site_phone'];
         
-       
-        $stmt = $conn->prepare("INSERT INTO recipients (full_name, address, phone) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO donation_sites (name, address, phone) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $address, $phone);
         
         if ($stmt->execute()) {
@@ -59,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (isset($_POST['delete_site'])) {
         $id = $_POST['site_id'];
-        $stmt = $conn->prepare("DELETE FROM recipients WHERE id_recipients = ?");
+        $stmt = $conn->prepare("DELETE FROM donation_sites WHERE id_donation_sites = ?");
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
             $message = "Donation site deleted successfully.";
@@ -70,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $cts_centers = $conn->query("SELECT * FROM cts_centers ORDER BY created_at DESC");
-$donation_sites = $conn->query("SELECT * FROM recipients ORDER BY created_at DESC");
+$donation_sites = $conn->query("SELECT * FROM donation_sites ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -257,12 +265,12 @@ $donation_sites = $conn->query("SELECT * FROM recipients ORDER BY created_at DES
                     <tbody>
                         <?php while($row = $donation_sites->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['full_name']); ?></td>
+                            <td><?php echo htmlspecialchars($row['name']); ?></td>
                             <td><?php echo htmlspecialchars($row['address']); ?></td>
                             <td><?php echo htmlspecialchars($row['phone']); ?></td>
                             <td>
                                 <form method="POST" style="display:inline;" onsubmit="return confirm('Delete this site?');">
-                                    <input type="hidden" name="site_id" value="<?php echo $row['id_recipients']; ?>">
+                                    <input type="hidden" name="site_id" value="<?php echo $row['id_donation_sites']; ?>">
                                     <input type="hidden" name="delete_site" value="1">
                                     <button class="btn-action btn-delete">Delete</button>
                                 </form>
