@@ -77,7 +77,34 @@ $alerts = $conn->query("SELECT * FROM alerts ORDER BY created_at DESC");
         </nav>
 
         <div class="content">
+<<<<<<< HEAD:admin_alerts.php
             <h1 class="gradient-text">System Alerts</h1>
+=======
+            <h1 class="gradient-text">Manage Accounts</h1>
+
+            <div class="form-card">
+                <h3>Add New Account</h3>
+
+                <form>
+                    <label>Full Name</label>
+                    <input type="text" required>
+
+                    <label>Email</label>
+                    <input type="email" required>
+
+                    <label>Role</label>
+                    <select>
+                        <option>Agent</option>
+                        <option>Manager</option>
+                    </select>
+
+                    <label>Password</label>
+                    <input type="password" required>
+
+                    <button class="submit-btn">Add Account</button>
+                </form>
+            </div>
+>>>>>>> c9b0c9cacc2d390d96643f1abe3c239cc8f9f2fd:accounts_admin.html
 
             <div class="table-card">
                 <h3>All Alerts</h3>
